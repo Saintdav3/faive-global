@@ -1,0 +1,16 @@
+{
+  "name": "faive-global",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Faive Global creative agency platform monorepo",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev:client\"",
+    "dev:client": "http-server ./client -p 5500 -c-1",
+    "server": "npm run dev --prefix server",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "http-server": "^14.1.1"
+  }
+}
