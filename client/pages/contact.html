@@ -8,106 +8,272 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body data-page="contact">
-    <header class="site-header">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg py-4">
-          <a class="navbar-brand brand-mark" href="/index.html">Faive Global</a>
-          <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="siteNav">
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-              <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/services.html">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/portfolio.html">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/about.html">About</a></li>              <li class="nav-item"><a class="nav-link" href="/pages/contact.html">Contact</a></li>
-              <li class="nav-item"><a class="btn btn-gold btn-sm px-4" href="/pages/quote.html">Request a Quote</a></li>
-            </ul>
+
+    <!-- Site Navigation -->
+    <div class="navigation-parent" id="site-header">
+      <div class="navigation-wrapper">
+        <div class="navigation-content">
+          <div class="navigation-logo">
+            <a href="/index">
+              <img src="/assets/FG%20logo-05.jpg" alt="Faive Global" class="nav-logo" />
+              <span class="nav-brand-name">Faive Global</span>
+            </a>
           </div>
-        </nav>
-      </div>
-    </header>
-    <main class="page-shell">
-      <section class="page-hero">
-        <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <span class="eyebrow">Contact</span>
-              <h1>Let's Work Together</h1>
-              <p>Have a project in mind? We'd love to hear from you.</p>
+          <nav class="navigation-menu" aria-label="Main navigation">
+                        <div class="navigation-menu-wrapper">
+              <div class="navigation-link-wrapper">
+                <a data-menu-trigger="services" href="/pages/services" class="navigation-menu-item">
+                  <div class="nav-item-text">Services</div>
+                </a>
+              </div>
+              <div class="navigation-link-wrapper">
+                <a data-menu-trigger="portfolio" href="/pages/portfolio" class="navigation-menu-item">
+                  <div class="nav-item-text">Portfolio</div>
+                </a>
+              </div>
+              <div class="navigation-link-wrapper">
+                <a href="/pages/about" class="navigation-menu-item">
+                  <div class="nav-item-text">About Us</div>
+                </a>
+              </div>
             </div>
-            <div class="col-lg-6">
-              <div class="page-visual-card">
-                <img
-                  src="/assets/placeholder-brand.svg"
-                  alt="Contact page placeholder"
-                  class="page-visual-image"
-                />
+          </nav>
+          <div class="navigation-actions">
+            <div class="navigation-link-wrapper">
+              <a href="/pages/creators" class="navigation-menu-item muted">
+                <div class="nav-item-text">Join as a creator</div>
+              </a>
+            </div>
+            <div class="navigation-cta">
+              <a href="/pages/contact" class="navigation-menu-item">
+                <div class="nav-item-text menu-cta">Contact</div>
+              </a>
+            </div>
+            <div class="mobile-menu-trigger">
+              <div data-mobile-toggle class="open">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+              </div>
+              <div data-mobile-toggle class="close" style="display:none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown + Mobile menu -->
+      <section class="navigation-dropdown-wrapper" style="display:none">
+        <div class="navigation-menu-wrapper mobile" style="display:none">
+          <div class="navigation-link-wrapper"><a href="/index" class="navigation-menu-item"><div class="nav-item-text">Home</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/services" class="navigation-menu-item"><div class="nav-item-text">Services</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/portfolio" class="navigation-menu-item"><div class="nav-item-text">Portfolio</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/about" class="navigation-menu-item"><div class="nav-item-text">About Us</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/contact" class="navigation-menu-item"><div class="nav-item-text">Contact</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/creators" class="navigation-menu-item"><div class="nav-item-text">Join as a creator</div></a></div>
+        </div>
+        <div class="navigation-mobile-cta" style="display:none">
+          <a href="/pages/contact" class="navigation-menu-item"><div class="nav-item-text menu-cta">Contact</div></a>
+        </div>
+
+        <!-- Services mega-menu -->
+        <div data-menu="services" class="navigation-dropdown-group" style="display:none">
+          <div class="dropdown-mega-grid">
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Creator-Led Campaigns</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">UGC Production</span>
+                <span class="dropdown-mega-tag">Influencer Partnerships</span>
+                <span class="dropdown-mega-tag">Campaign Rollout</span>
+                <span class="dropdown-mega-tag">Creative Strategy</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Creator Sourcing</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Global Markets</span>
+                <span class="dropdown-mega-tag">Audience Alignment</span>
+                <span class="dropdown-mega-tag">Talent Curation</span>
+                <span class="dropdown-mega-tag">K-Beauty Focus</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Campaign Strategy</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Product Positioning</span>
+                <span class="dropdown-mega-tag">Content Direction</span>
+                <span class="dropdown-mega-tag">Messaging &amp; Angles</span>
+                <span class="dropdown-mega-tag">Brand Voice</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Campaign Execution</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Timeline Management</span>
+                <span class="dropdown-mega-tag">Creator Coordination</span>
+                <span class="dropdown-mega-tag">Delivery &amp; Reporting</span>
+                <span class="dropdown-mega-tag">Analytics</span>
+              </div>
+            </a>
+          </div>
+          <div class="dropdown-mega-footer"><a href="/pages/services">All Services →</a></div>
+        </div>
+
+        <!-- Portfolio mega-menu -->
+        <div data-menu="portfolio" class="navigation-dropdown-group" style="display:none">
+          <div class="dropdown-portfolio-layout">
+            <div class="dropdown-portfolio-left">
+              <a href="/pages/portfolio" class="dropdown-portfolio-category">
+                <strong>All Case Studies</strong>
+                <span>Read through our campaign work</span>
+              </a>
+              <hr class="dropdown-portfolio-divider" />
+              <a href="/pages/portfolio" class="dropdown-portfolio-category">
+                <strong>UGC Highlights</strong>
+                <span>A peek into our content library</span>
+              </a>
+            </div>
+            <div class="dropdown-portfolio-right">
+              <div class="dropdown-portfolio-grid">
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Creator Campaign</strong><span>Lumière Seoul</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-hero.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>UGC Production</strong><span>Glow Theory</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-brand.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Influencer Campaign</strong><span>Pure Jeju</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Campaign Strategy</strong><span>Seoul Glow Co.</span></div>
+                </a>
+              </div>
+              <div class="dropdown-portfolio-footer-row">
+                <span>Recent projects</span>
+                <a href="/pages/portfolio">See all →</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section-shell">
+    </div>
+
+    <!-- Contact Page Content -->
+    <main class="page-shell">
+      <section class="contact-page-section">
         <div class="container">
-          <div class="row g-5">
-            <div class="col-lg-5">
-              <h2 class="section-title">Contact Details</h2>
-              <p class="lead-copy">
-                Fill out the form and our team will get back to you within
-                24-48 hours.
-              </p>
-              <div class="contact-info-card mt-4">
-                <p><strong>Email</strong><span>hello@faiveglobal.ltd</span></p>
-                <p><strong>Phone</strong><span>+234 912 2777 890</span></p>
-                <p><strong>Location</strong><span>Abuja, Nigeria</span></p>
+          <div class="contact-page-layout">
+
+            <!-- Left: copy + logos -->
+            <div class="contact-page-left">
+              <h1 class="contact-page-heading">Work With Us</h1>
+              <p class="contact-page-sub">If you're a Korean skincare or beauty brand looking to scale globally through creator-led campaigns, we'd love to hear from you.</p>
+              <p class="contact-page-sub contact-page-sub-bold">We help brands hit their campaign goals 
+                globally.</p>
+
+              <div class="contact-brand-grid">
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
+                <div class="contact-brand-item"><img src="/assets/placeholder-brand.svg" alt="Brand partner" /></div>
               </div>
-              <div class="support-visual-card mt-4">
-                <img
-                  src="/assets/placeholder-portfolio.svg"
-                  alt="Conversation starter placeholder"
-                  class="support-visual-image"
-                />
-              </div>
+
+              <div class="contact-inquiry-types">
+              <p class="contact-inquiry-label">Inquiry types</p>
+              <span class="contact-inquiry-pill">Brand Campaigns</span>
+              <span class="contact-inquiry-pill">Partnerships</span>
+              <span class="contact-inquiry-pill">Creator Inquiries</span>
+              <span class="contact-inquiry-pill">General</span>
             </div>
-            <div class="col-lg-7">
-              <form id="contact-form" class="form-shell">
-                <div class="row g-3">
-                  <div class="col-md-6"><input class="form-control" name="fullName" placeholder="Full name" required /></div>
-                  <div class="col-md-6"><input class="form-control" type="email" name="email" placeholder="Email address" required /></div>
-                  <div class="col-12"><input class="form-control" name="company" placeholder="Company" /></div>
-                  <div class="col-md-6"><input class="form-control" name="subject" placeholder="Service needed" required /></div>
-                  <div class="col-md-6"><input class="form-control" name="budget" placeholder="Budget" /></div>
-                  <div class="col-12"><textarea class="form-control" name="message" rows="6" placeholder="Tell us about your brand, campaign, and what you need" required></textarea></div>
-                  <div class="col-12">
-                    <button class="btn btn-gold" type="submit">Send Message</button>
-                    <p id="contact-feedback" class="form-feedback mt-3"></p>
+            <br>
+            <a href="mailto:hello@faiveglobal.ltd" class="contact-email-btn">Send an email</a>
+            </div>
+
+            <!-- Right: form card -->
+            <div class="contact-page-right">
+              <div class="contact-form-card">
+                <form id="contact-form">
+                  <div class="row g-3">
+                    <div class="col-md-6"><input class="form-control" name="fullName" placeholder="Full name" required /></div>
+                    <div class="col-md-6"><input class="form-control" type="email" name="email" placeholder="Email address" required /></div>
+                    <div class="col-12"><input class="form-control" name="company" placeholder="Company" /></div>
+                    <div class="col-md-6"><input class="form-control" name="subject" placeholder="Service needed" /></div>
+                    <div class="col-md-6"><input class="form-control" name="budget" placeholder="Budget" /></div>
+                    <div class="col-12"><textarea class="form-control" name="message" rows="6" placeholder="Tell us about your brand, campaign, and what you need" required></textarea></div>
+                    <div class="col-12">
+                      <button class="btn btn-gold w-100" type="submit">Send Message</button>
+                      <p id="contact-feedback" class="form-feedback mt-3"></p>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Site Footer -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-shell">
-          <div class="row g-4">
-            <div class="col-lg-5"><div class="footer-intro"><span class="eyebrow">Faive Global</span><h2 class="footer-brand">Lifestyle & beauty media production for brands with global ambition.</h2><p class="footer-copy">Faive Global creates UGC, influencer campaigns, beauty productions, and lifestyle content with a clean premium agency standard.</p><div class="footer-cta-row"><a class="btn btn-gold" href="/pages/quote.html">Request a Quote</a><a class="footer-inline-link" href="/pages/contact.html">Start a conversation</a></div></div></div>
-            <div class="col-lg-7"><div class="row g-4"><div class="col-md-6"><div class="footer-column"><p class="footer-label">Navigate</p><a href="/index.html">Home</a><a href="/pages/services.html">Services</a><a href="/pages/portfolio.html">Portfolio</a><a href="/pages/about.html">About</a><a href="/pages/contact.html">Contact</a></div></div><div class="col-md-6"><div class="footer-column footer-contact-card"><p class="footer-label">Contact</p><span>Abuja,Nigeria</span><span>hello@faiveglobal.ltd</span><span>+234 912 2777 890</span></div></div></div></div>
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+              <div class="footer-intro">
+                <img src="/assets/FG%20logo-04.jpg" alt="Faive Global" class="footer-logo" />
+                <span class="eyebrow">Faive Global</span>
+                <h2 class="footer-brand">
+                  Lifestyle & beauty media production for brands with global ambition.
+                </h2>
+                <p class="footer-copy">
+                  Faive Global creates UGC, influencer campaigns, beauty productions, and lifestyle content with a clean premium agency standard.
+                </p>
+                <div class="footer-cta-row">
+                  <a class="footer-inline-link" href="/pages/contact">Start a conversation</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-column">
+                <p class="footer-label">Navigate</p>
+                <a href="/index">Home</a>
+                <a href="/pages/about">About</a>
+                <a href="/pages/services">Services</a>
+                <a href="/pages/portfolio">Portfolio</a>
+                <a href="/pages/contact">Contact</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-column footer-contact-card">
+                <p class="footer-label">Get in Touch</p>
+                <span>Abuja, Nigeria</span>
+                <a href="mailto:hello@faiveglobal.ltd">hello@faiveglobal.ltd</a>
+                <a href="tel:+2349122777890">+234 912 2777 890</a>
+                <div class="footer-social">
+                  <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                  <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-bottom"><span>&copy; 2026 Faive Global. All rights reserved.</span><span>Created in 2026</span><span>www.faiveglobal.ltd</span></div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Faive Global. All rights reserved.</span>
+          <span>Abuja, Nigeria</span>
+        </div>
       </div>
     </footer>
     <script type="module" src="/js/main.js"></script>

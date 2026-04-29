@@ -1,108 +1,41 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
-
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
-const connectDB = require('./config/db');
-const bootstrapAdmin = require('./utils/bootstrapAdmin');
-const authRoutes = require('./routes/authRoutes');
-const portfolioRoutes = require('./routes/portfolioRoutes');
-const serviceRoutes = require('./routes/serviceRoutes');
-const quoteRoutes = require('./routes/quoteRoutes');
+
 const contactRoutes = require('./routes/contactRoutes');
-const { loginPage } = require('./controllers/authController');
-const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
-app.locals.dbReady = false;
-const allowedOrigins = new Set(
-  (process.env.CLIENT_URL
-    ? process.env.CLIENT_URL.split(',').map((origin) => origin.trim())
-    : []
-  ).filter(Boolean)
-);
+const PORT = process.env.PORT || 3000;
 
-allowedOrigins.add(`http://127.0.0.1:${process.env.PORT || 5000}`);
-allowedOrigins.add(`http://localhost:${process.env.PORT || 5000}`);
-allowedOrigins.add('http://127.0.0.1:5500');
-allowedOrigins.add('http://localhost:5500');
+// Allow requests from the frontend — localhost on any port is always allowed in dev
+const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5500').split(',').map((o) => o.trim());
+const isLocalhost = (origin) => /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
 
 app.use(
   cors({
-    origin(origin, callback) {
-      if (!origin || !allowedOrigins.size || allowedOrigins.has(origin)) {
-        callback(null, true);
-        return;
-      }
-
-      callback(new Error('Origin not allowed by CORS'));
+    origin: (origin, callback) => {
+      // Allow requests with no origin (curl, Postman), localhost, and listed origins
+      if (!origin || isLocalhost(origin) || allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS: origin ${origin} not allowed`));
     },
-    credentials: true
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
-app.get('/api/health', (req, res) => {
-  res.json({
-    success: true,
-    database: app.locals.dbReady ? 'connected' : 'degraded',
-    environment: process.env.NODE_ENV || 'development',
-    timestamp: new Date().toISOString()
-  });
-});
-
-app.use('/api/auth', authRoutes);
-app.use('/api/portfolio', portfolioRoutes);
-app.use('/api/services', serviceRoutes);
-app.use('/api/quotes', quoteRoutes);
+// Routes
 app.use('/api/contact', contactRoutes);
 
-app.use(express.static(path.join(__dirname, '..', 'client')));
+// Health check
+app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+// Global error handler
+app.use((err, _req, res, _next) => {
+  console.error(err.message || err);
+  res.status(err.status || 500).json({ success: false, message: err.message || 'Server error' });
 });
 
-app.get('/admin/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'admin-login.html'));
-});
-
-app.post('/admin/login', loginPage);
-
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'dashboard.html'));
-});
-
-app.get('/pages/dashboard.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'dashboard.html'));
-});
-
-app.use(notFound);
-app.use(errorHandler);
-
-const port = process.env.PORT || 5000;
-
-const startServer = async () => {
-  try {
-    await connectDB();
-    app.locals.dbReady = true;
-    await bootstrapAdmin();
-  } catch (error) {
-    app.locals.dbReady = false;
-    console.error('MongoDB unavailable. Starting in degraded mode.', error.message);
-  }
-
-  app.listen(port, () => {
-    console.log(
-      `Faive Global server running on port ${port}${app.locals.dbReady ? '' : ' (degraded mode)'}`
-    );
-  });
-};
-
-startServer().catch((error) => {
-  console.error('Server failed to start', error);
-  process.exit(1);
+app.listen(PORT, () => {
+  console.log(`Faive Global server running → http://localhost:${PORT}`);
 });

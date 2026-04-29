@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,80 +8,534 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body data-page="services">
-    <header class="site-header">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg py-4">
-          <a class="navbar-brand brand-mark" href="/index.html">Faive Global</a>
-          <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="siteNav">
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-              <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/services.html">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/portfolio.html">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link" href="/pages/about.html">About</a></li>              <li class="nav-item"><a class="nav-link" href="/pages/contact.html">Contact</a></li>
-              <li class="nav-item"><a class="btn btn-gold btn-sm px-4" href="/pages/quote.html">Request a Quote</a></li>
-            </ul>
+
+    <!-- Site Navigation -->
+    <div class="navigation-parent" id="site-header">
+      <div class="navigation-wrapper">
+        <div class="navigation-content">
+          <div class="navigation-logo">
+            <a href="/index">
+              <img src="/assets/FG%20logo-05.jpg" alt="Faive Global" class="nav-logo" />
+              <span class="nav-brand-name">Faive Global</span>
+            </a>
           </div>
-        </nav>
-      </div>
-    </header>
-    <main class="page-shell">
-      <section class="page-hero">
-        <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <span class="eyebrow">Services</span>
-              <h1>Our Services</h1>
-              <p>
-                We provide end-to-end creative solutions for beauty and
-                lifestyle brands looking to grow, scale, and stand out.
-              </p>
+          <nav class="navigation-menu" aria-label="Main navigation">
+            <div class="navigation-menu-wrapper">
+              <div class="navigation-link-wrapper">
+                <a data-menu-trigger="services" href="/pages/services" class="navigation-menu-item">
+                  <div class="nav-item-text">Services</div>
+                </a>
+              </div>
+              <div class="navigation-link-wrapper">
+                <a data-menu-trigger="portfolio" href="/pages/portfolio" class="navigation-menu-item">
+                  <div class="nav-item-text">Portfolio</div>
+                </a>
+              </div>
+              <div class="navigation-link-wrapper">
+                <a href="/pages/about" class="navigation-menu-item">
+                  <div class="nav-item-text">About Us</div>
+                </a>
+              </div>
             </div>
-            <div class="col-lg-6">
-              <div class="page-visual-card">
-                <img
-                  src="/assets/placeholder-hero.svg"
-                  alt="Creative services placeholder"
-                  class="page-visual-image"
-                />
+          </nav>
+          <div class="navigation-actions">
+            <div class="navigation-link-wrapper">
+              <a href="/pages/creators" class="navigation-menu-item muted">
+                <div class="nav-item-text">Join as a creator</div>
+              </a>
+            </div>
+            <div class="navigation-cta">
+              <a href="/pages/contact" class="navigation-menu-item">
+                <div class="nav-item-text menu-cta">Contact</div>
+              </a>
+            </div>
+            <div class="mobile-menu-trigger">
+              <div data-mobile-toggle class="open">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+              </div>
+              <div data-mobile-toggle class="close" style="display:none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown + Mobile menu -->
+      <section class="navigation-dropdown-wrapper" style="display:none">
+        <div class="navigation-menu-wrapper mobile" style="display:none">
+          <div class="navigation-link-wrapper"><a href="/index" class="navigation-menu-item"><div class="nav-item-text">Home</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/services" class="navigation-menu-item"><div class="nav-item-text">Services</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/portfolio" class="navigation-menu-item"><div class="nav-item-text">Portfolio</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/about" class="navigation-menu-item"><div class="nav-item-text">About Us</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/contact" class="navigation-menu-item"><div class="nav-item-text">Contact</div></a></div>
+          <div class="navigation-link-wrapper"><a href="/pages/creators" class="navigation-menu-item"><div class="nav-item-text">Join as a creator</div></a></div>
+        </div>
+        <div class="navigation-mobile-cta" style="display:none">
+          <a href="/pages/contact" class="navigation-menu-item"><div class="nav-item-text menu-cta">Contact</div></a>
+        </div>
+
+        <!-- Services mega-menu -->
+        <div data-menu="services" class="navigation-dropdown-group" style="display:none">
+          <div class="dropdown-mega-grid">
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Creator-Led Campaigns</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">UGC Production</span>
+                <span class="dropdown-mega-tag">Influencer Partnerships</span>
+                <span class="dropdown-mega-tag">Campaign Rollout</span>
+                <span class="dropdown-mega-tag">Creative Strategy</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Creator Sourcing</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Global Markets</span>
+                <span class="dropdown-mega-tag">Audience Alignment</span>
+                <span class="dropdown-mega-tag">Talent Curation</span>
+                <span class="dropdown-mega-tag">K-Beauty Focus</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Campaign Strategy</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Product Positioning</span>
+                <span class="dropdown-mega-tag">Content Direction</span>
+                <span class="dropdown-mega-tag">Messaging &amp; Angles</span>
+                <span class="dropdown-mega-tag">Brand Voice</span>
+              </div>
+            </a>
+            <a href="/pages/services" class="dropdown-mega-card">
+              <div class="dropdown-mega-title">Campaign Execution</div>
+              <div class="dropdown-mega-tags">
+                <span class="dropdown-mega-tag">Timeline Management</span>
+                <span class="dropdown-mega-tag">Creator Coordination</span>
+                <span class="dropdown-mega-tag">Delivery &amp; Reporting</span>
+                <span class="dropdown-mega-tag">Analytics</span>
+              </div>
+            </a>
+          </div>
+          <div class="dropdown-mega-footer"><a href="/pages/services">All Services →</a></div>
+        </div>
+
+        <!-- Portfolio mega-menu -->
+        <div data-menu="portfolio" class="navigation-dropdown-group" style="display:none">
+          <div class="dropdown-portfolio-layout">
+            <div class="dropdown-portfolio-left">
+              <a href="/pages/portfolio" class="dropdown-portfolio-category">
+                <strong>All Case Studies</strong>
+                <span>Read through our campaign work</span>
+              </a>
+              <hr class="dropdown-portfolio-divider" />
+              <a href="/pages/portfolio" class="dropdown-portfolio-category">
+                <strong>UGC Highlights</strong>
+                <span>A peek into our content library</span>
+              </a>
+            </div>
+            <div class="dropdown-portfolio-right">
+              <div class="dropdown-portfolio-grid">
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Creator Campaign</strong><span>Lumière Seoul</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-hero.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>UGC Production</strong><span>Glow Theory</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-brand.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Influencer Campaign</strong><span>Pure Jeju</span></div>
+                </a>
+                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Campaign Strategy</strong><span>Seoul Glow Co.</span></div>
+                </a>
+              </div>
+              <div class="dropdown-portfolio-footer-row">
+                <span>Recent projects</span>
+                <a href="/pages/portfolio">See all →</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section-shell">
+    </div>
+
+    <!-- Services Page Content -->
+    <main class="page-shell">
+
+      <!-- Hero -->
+      <section class="svc-hero-section">
         <div class="container">
-          <div class="row g-4 mb-4">
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>UGC Content Production</h3><p>We create authentic, relatable, and high-performing content designed to resonate with your audience and drive conversions.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>Campaign Video Production</h3><p>From concept development to final delivery, we produce visually compelling campaigns that align with your brand identity.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>Influencer Marketing Campaigns</h3><p>We connect your brand with the right creators to ensure reach, engagement, and trust.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>Creative Direction</h3><p>We develop creative strategies and visuals that position your brand effectively in the market.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>Model Sourcing</h3><p>We provide diverse and relevant models tailored to your brand and campaign needs.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
-            <div class="col-lg-4"><article class="feature-card h-100"><h3>Brand Campaign Strategy</h3><p>We design campaigns that are not only creative but also strategically built to perform.</p><a class="btn btn-outline-dark btn-sm mt-3" href="/pages/quote.html">Request a Quote</a></article></div>
+          <h1 class="svc-hero-title">K-beauty campaigns,<br>built to perform.</h1>
+          <a href="/pages/contact" class="svc-hero-cta">Contact</a>
+        </div>
+      </section>
+
+      <!-- Hero Visual -->
+      <section class="svc-visual-section">
+        <div class="container">
+          <div class="svc-visual-panel">
+            <div class="svc-visual-center">
+              <img src="/assets/placeholder-hero.svg" alt="Campaign visual" class="svc-visual-img" />
+            </div>
+            <!-- Floating UI cards -->
+            <div class="svc-float-card svc-float-topleft">
+              <div class="sfc-float-dots">
+                <span></span><span></span>
+              </div>
+              <strong>Creator-Led Growth</strong>
+              <p>Our services compound through a shared campaign strategy and a transparent performance layer.</p>
+            </div>
+            <div class="svc-float-card svc-float-topright">
+              <div class="sfc-float-dot-active"></div>
+              <p class="sfc-float-label">Signal capture</p>
+              <p class="sfc-float-label">Messaging &amp; framing</p>
+              <p class="sfc-float-label">Reception with audience</p>
+            </div>
+            <div class="svc-float-pill svc-float-bottom">
+              <span class="sfc-pill-dot"></span>
+              <span>UGC · Influencer · Strategy · Execution</span>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- Service Cards Grid -->
+      <section class="section-shell svc-cards-section">
+        <div class="container">
+          <div class="svc-feature-grid">
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82V15.18a1 1 0 01-1.447.889L15 14"/><rect x="2" y="6" width="13" height="12" rx="2"/></svg>
+              </div>
+              <h3 class="sfc-title">UGC Content Production</h3>
+              <p class="sfc-desc">We plan and execute full campaigns combining influencer marketing and UGC into one cohesive system.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">High-volume production</span>
+                <span class="sfc-tag">Iterative testing</span>
+                <span class="sfc-tag">Low-fi formats</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <h3 class="sfc-title">Influencer Campaigns</h3>
+              <p class="sfc-desc">We identify and activate creators aligned with your product, audience, and global expansion goals.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Sourcing &amp; vetting</span>
+                <span class="sfc-tag">Nano to Macro</span>
+                <span class="sfc-tag">Whitelisting</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+              </div>
+              <h3 class="sfc-title">Campaign Strategy</h3>
+              <p class="sfc-desc">We define how your product should be positioned and how it should be presented across all campaign content.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Product positioning</span>
+                <span class="sfc-tag">Messaging &amp; angles</span>
+                <span class="sfc-tag">Brand voice</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <h3 class="sfc-title">Campaign Execution</h3>
+              <p class="sfc-desc">We manage timelines, creator coordination, and delivery across the entire campaign from start to finish.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Timeline management</span>
+                <span class="sfc-tag">Creator coordination</span>
+                <span class="sfc-tag">Analytics</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3 class="sfc-title">Creator Sourcing</h3>
+              <p class="sfc-desc">We identify creators who align with your product, audience, and expansion goals who can translate your product, not just promote it.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Global markets</span>
+                <span class="sfc-tag">Audience alignment</span>
+                <span class="sfc-tag">K-Beauty focus</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <h3 class="sfc-title">Brand Campaign Strategy</h3>
+              <p class="sfc-desc">We design campaigns that are strategically built to perform from platform selection through to execution and reporting.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Channel strategy</span>
+                <span class="sfc-tag">Creative direction</span>
+                <span class="sfc-tag">Performance tracking</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              </div>
+              <h3 class="sfc-title">Creative Direction</h3>
+              <p class="sfc-desc">We develop visual and messaging frameworks that position your K-beauty brand consistently across all content.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">Visual identity</span>
+                <span class="sfc-tag">Shot direction</span>
+                <span class="sfc-tag">Brand standards</span>
+              </div>
+            </article>
+
+            <article class="svc-feature-card">
+              <div class="sfc-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3 class="sfc-title">Model &amp; Talent Sourcing</h3>
+              <p class="sfc-desc">Diverse, relevant on-screen talent tailored to your brand identity, campaign brief, and target audience market.</p>
+              <div class="sfc-tags">
+                <span class="sfc-tag">On-screen talent</span>
+                <span class="sfc-tag">Diverse casting</span>
+                <span class="sfc-tag">Brand alignment</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Study Preview Cards -->
+      <section class="section-shell cs-stat-cards-section">
+        <div class="container">
+          <div class="cs-stat-grid">
+            <article class="cs-stat-card">
+              <div class="cs-stat-top">
+                <span class="cs-stat-brand">Lumière Seoul</span>
+                <img src="/assets/placeholder-portfolio.svg" alt="Lumière Seoul" class="cs-stat-thumb" />
+              </div>
+              <div class="cs-stat-num">33%</div>
+              <div class="cs-stat-label cs-label-green">MoM Profit Growth</div>
+            </article>
+            <article class="cs-stat-card">
+              <div class="cs-stat-top">
+                <span class="cs-stat-brand">Glow Theory</span>
+                <img src="/assets/placeholder-hero.svg" alt="Glow Theory" class="cs-stat-thumb" />
+              </div>
+              <div class="cs-stat-num">70%</div>
+              <div class="cs-stat-label cs-label-coral">Reduction in CPA</div>
+            </article>
+            <article class="cs-stat-card">
+              <div class="cs-stat-top">
+                <span class="cs-stat-brand">Pure Jeju</span>
+                <img src="/assets/placeholder-brand.svg" alt="Pure Jeju" class="cs-stat-thumb" />
+              </div>
+              <div class="cs-stat-num">4.2×</div>
+              <div class="cs-stat-label cs-label-purple">Return on Ad Spend</div>
+            </article>
+            <article class="cs-stat-card">
+              <div class="cs-stat-top">
+                <span class="cs-stat-brand">Seoul Glow Co.</span>
+                <img src="/assets/placeholder-portfolio.svg" alt="Seoul Glow Co." class="cs-stat-thumb" />
+              </div>
+              <div class="cs-stat-num">2M+</div>
+              <div class="cs-stat-label cs-label-grey">Content Impressions</div>
+            </article>
+          </div>
+          <div class="svc-cs-btn-row">
+            <a href="/pages/portfolio" class="svc-all-cs-btn">All Case Studies</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Case Study -->
+      <section class="section-shell featured-cs-section">
+        <div class="container">
+          <div class="fcs-layout">
+            <div class="fcs-image-col">
+              <div class="fcs-image-wrap">
+                <img src="/assets/placeholder-hero.svg" alt="Lumière Seoul Campaign" class="fcs-img" />
+                <button class="fcs-play-btn" aria-label="Play campaign video">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="fcs-content-col">
+              <div class="fcs-brand-row">
+                <img src="/assets/placeholder-brand.svg" alt="Lumière Seoul" class="fcs-brand-logo" />
+                <span class="fcs-type-pill">Full Funnel Growth Marketing</span>
+              </div>
+              <h3 class="fcs-headline">How a K-beauty brand repositioned through creator-led storytelling and achieved measurable growth in new markets.</h3>
+              <a href="/pages/case-study" class="fcs-cta-pill">Full Case Study</a>
+              <div class="fcs-metrics">
+                <div class="fcs-metric">
+                  <span class="fcs-metric-num">33%</span>
+                  <span class="fcs-metric-label">Growth in MoM Profit Margin</span>
+                </div>
+                <div class="fcs-metric">
+                  <span class="fcs-metric-num">70%</span>
+                  <span class="fcs-metric-label">Reduction in Overall CPA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-shell faq-section">
+        <div class="container">
+          <h2 class="faq-heading">K-beauty campaigns, answered.</h2>
+          <div class="faq-grid">
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Do you only work with Korean beauty brands?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>Yes we partner exclusively with Korean skincare and beauty brands. This focus means we bring deep category knowledge, creator relationships, and campaign experience tailored to K-beauty products and audiences.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>What platforms do you run campaigns on?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>We specialise in TikTok, Instagram, and YouTube the primary platforms where K-beauty content performs globally. We tailor content format, creator style, and posting strategy to each platform's native behaviour.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>How do I start working with Faive Global?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>Reach out via our Contact page with details about your brand and campaign goals. We'll schedule a discovery call to understand your objectives and propose a campaign approach that fits your timeline and budget.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>How do you select the creators you work with?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>We match creators based on audience demographics, engagement quality, content aesthetic, and brand affinity not just follower count. Every creator brief is reviewed against your brand standards before outreach begins.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>How long does a campaign typically take?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>Most campaigns run 4-8 weeks from briefing to final delivery. Timelines depend on creator count, content volume, and campaign complexity. We provide a clear production schedule at the start of every project.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Can you manage campaigns across multiple markets?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body">
+                <p>Yes. We have creators and campaign experience across North America, Europe, Southeast Asia, and the Middle East. We adapt messaging, creator selection, and content style to each market's expectations and culture.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="svc-cta-section">
+        <div class="container">
+          <div class="svc-cta-inner">
+            <h2 class="svc-cta-heading">Ready to scale your brand beyond your local market?</h2>
+            <div class="svc-cta-right">
+              <a href="/pages/contact" class="svc-cta-btn">Get Started</a>
+              <div class="svc-cta-partners">
+                <span>Active on</span>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-youtube"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
+
+    <!-- Site Footer -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-shell">
-          <div class="row g-4">
-            <div class="col-lg-5"><div class="footer-intro"><span class="eyebrow">Faive Global</span><h2 class="footer-brand">Lifestyle & beauty media production for brands with global ambition.</h2><p class="footer-copy">Faive Global creates UGC, influencer campaigns, beauty productions, and lifestyle content with a clean premium agency standard.</p><div class="footer-cta-row"><a class="btn btn-gold" href="/pages/quote.html">Request a Quote</a><a class="footer-inline-link" href="/pages/contact.html">Start a conversation</a></div></div></div>
-            <div class="col-lg-7"><div class="row g-4"><div class="col-md-6"><div class="footer-column"><p class="footer-label">Navigate</p><a href="/index.html">Home</a><a href="/pages/services.html">Services</a><a href="/pages/portfolio.html">Portfolio</a><a href="/pages/about.html">About</a><a href="/pages/contact.html">Contact</a></div></div><div class="col-md-6"><div class="footer-column footer-contact-card"><p class="footer-label">Contact</p><span>Abuja,Nigeria</span><span>hello@faiveglobal.ltd</span><span>+234 912 2777 890</span></div></div></div></div>
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+              <div class="footer-intro">
+                <img src="/assets/FG%20logo-04.jpg" alt="Faive Global" class="footer-logo" />
+                <span class="eyebrow">Faive Global</span>
+                <h2 class="footer-brand">
+                  Lifestyle & beauty media production for brands with global ambition.
+                </h2>
+                <p class="footer-copy">
+                  Faive Global creates UGC, influencer campaigns, beauty productions, and lifestyle content with a clean premium agency standard.
+                </p>
+                <div class="footer-cta-row">
+                  <a class="footer-inline-link" href="/pages/contact">Start a conversation</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-column">
+                <p class="footer-label">Navigate</p>
+                <a href="/index">Home</a>
+                <a href="/pages/about">About</a>
+                <a href="/pages/services">Services</a>
+                <a href="/pages/portfolio">Portfolio</a>
+                <a href="/pages/contact">Contact</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-column footer-contact-card">
+                <p class="footer-label">Get in Touch</p>
+                <span>Abuja, Nigeria</span>
+                <a href="mailto:hello@faiveglobal.ltd">hello@faiveglobal.ltd</a>
+                <a href="tel:+2349122777890">+234 912 2777 890</a>
+                <div class="footer-social">
+                  <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                  <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer-bottom"><span>&copy; 2026 Faive Global. All rights reserved.</span><span>Created in 2026</span><span>www.faiveglobal.ltd</span></div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Faive Global. All rights reserved.</span>
+          <span>Abuja, Nigeria</span>
+        </div>
       </div>
     </footer>
     <script type="module" src="/js/main.js"></script>

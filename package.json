@@ -2,15 +2,17 @@
   "name": "faive-global",
   "version": "1.0.0",
   "private": true,
-  "description": "Faive Global creative agency platform monorepo",
+  "description": "Faive Global website — frontend + API server",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev:client\"",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "http-server ./client -p 5500 -c-1",
-    "server": "npm run dev --prefix server",
-    "start": "npm run start --prefix server"
+    "dev:server": "cd server && npm run dev",
+    "start:client": "http-server ./client -p 5500 -c-1",
+    "start:server": "cd server && node server.js",
+    "install:server": "cd server && npm install"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2",
+    "concurrently": "^8.2.2",
     "http-server": "^14.1.1"
   }
 }

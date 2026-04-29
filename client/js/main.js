@@ -1,33 +1,12 @@
-import { renderHeader } from '../components/header.js';
-import { renderFooter } from '../components/footer.js';
-import { api, apiEndpoints } from './api.js';
+import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards } from './portfolio.js';
+import { initMegaNav } from './mega-nav.js';
 
-const placeholders = {
-  avatar: '/assets/placeholder-avatar.svg'
-};
-
-const adminBaseUrl = window.location.origin.includes('5500')
-  ? 'http://localhost:5000'
-  : window.location.origin;
-
-let authModulePromise;
-let portfolioModulePromise;
-let dashboardModulePromise;
-
-const loadAuthModule = async () => {
-  authModulePromise ||= import('./auth.js');
-  return authModulePromise;
-};
-
-const loadPortfolioModule = async () => {
-  portfolioModulePromise ||= import('./portfolio.js');
-  return portfolioModulePromise;
-};
-
-const loadDashboardModule = async () => {
-  dashboardModulePromise ||= import('./dashboard.js');
-  return dashboardModulePromise;
-};
+// In development: points to the local Express server.
+// In production: replace with your deployed server URL e.g. https://api.faiveglobal.ltd
+const API_BASE =
+  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000/api'
+    : '/api';
 
 const applyRevealAttributes = () => {
   const selectors = [
@@ -37,9 +16,16 @@ const applyRevealAttributes = () => {
     '.section-heading',
     '.feature-card',
     '.service-card',
+    '.svc-card',
+    '.svc-feature-card',
+    '.svc-visual-panel',
+    '.stat-card',
     '.portfolio-card',
+    '.pf-card',
+    '.pf-heading',
     '.team-card',
     '.cta-card',
+    '.testimonial-dark-card',
     '.form-shell',
     '.page-visual-card',
     '.support-visual-card',
@@ -83,7 +69,7 @@ const initScrollAnimations = () => {
 };
 
 const initHeaderMotion = () => {
-  const header = document.querySelector('.site-header');
+  const header = document.querySelector('.navigation-parent');
   if (!header) return;
 
   const syncHeader = () => {
@@ -94,47 +80,29 @@ const initHeaderMotion = () => {
   window.addEventListener('scroll', syncHeader, { passive: true });
 };
 
-const mountSharedShell = () => {
-  const header = document.getElementById('site-header');
-  const footer = document.getElementById('site-footer');
+const initActiveNav = () => {
+  const page = document.body.dataset.page;
+  const pageMap = {
+    home: '/index.html',
+    about: '/pages/about.html',
+    services: '/pages/services.html',
+    portfolio: '/pages/portfolio.html',
+    'case-study': '/pages/portfolio.html',
+    contact: '/pages/contact.html',
+  };
 
-  if (header) header.innerHTML = renderHeader();
-  if (footer) footer.innerHTML = renderFooter();
+  const activeHref = pageMap[page];
+  if (!activeHref) return;
 
-  const toggler = document.querySelector('.navbar-toggler');
-  const nav = document.getElementById('siteNav');
-
-  if (toggler && nav) {
-    toggler.addEventListener('click', () => {
-      nav.classList.toggle('show');
-    });
-  }
-};
-
-const renderServices = async (targetId, limit) => {
-  const target = document.getElementById(targetId);
-  if (!target) return;
-
-  const response = await api.get(apiEndpoints.services);
-  const items = limit ? response.data.slice(0, limit) : response.data;
-
-  target.innerHTML = items
-    .map(
-      (service) => `
-        <div class="col-lg-4">
-            <article class="service-card">
-            <p class="card-meta">${service.category}</p>
-            <h3>${service.name}</h3>
-            <p>${service.shortDescription}</p>
-            <div class="service-footer">
-              <span>${service.startingAt || 'Custom scope'}</span>
-              <a class="btn btn-outline-dark btn-sm" href="/pages/quote.html">Request quote</a>
-            </div>
-          </article>
-        </div>
-      `
-    )
-    .join('');
+  document.querySelectorAll('.navigation-menu-item').forEach((item) => {
+    const href = item.getAttribute('href');
+    if (href === activeHref) {
+      item.style.backgroundColor = 'var(--color-ink)';
+      const text = item.querySelector('.nav-item-text');
+      if (text) text.style.color = '#ffffff';
+      item.setAttribute('aria-current', 'page');
+    }
+  });
 };
 
 const initContactForm = () => {
@@ -144,124 +112,181 @@ const initContactForm = () => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const feedback = document.getElementById('contact-feedback');
-    const payload = Object.fromEntries(new FormData(form).entries());
-    feedback.textContent = 'Sending your message...';
+    const btn = form.querySelector('button[type="submit"]');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    if (feedback) { feedback.textContent = ''; feedback.className = 'form-feedback mt-3'; }
 
     try {
-      await api.post(apiEndpoints.contacts, payload);
-      feedback.textContent = 'Your message has been sent successfully.';
-      form.reset();
-    } catch (error) {
-      feedback.textContent = error.message;
+      const res = await fetch(`${API_BASE}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const data = await res.json();
+
+      if (feedback) {
+        feedback.textContent = data.message;
+        feedback.classList.add(data.success ? 'text-success' : 'text-danger');
+      }
+      if (data.success) form.reset();
+    } catch {
+      if (feedback) {
+        feedback.textContent = 'Something went wrong. Please email hello@faiveglobal.ltd.';
+        feedback.classList.add('text-danger');
+      }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
     }
   });
 };
 
-const initQuoteForm = async () => {
-  const form = document.getElementById('quote-form');
-  if (!form) return;
 
-  const serviceSelect = document.getElementById('quote-service-select');
-  const services = await api.get(apiEndpoints.services);
-  serviceSelect.innerHTML = `
-    <option value="">Select service interest</option>
-    ${services.data.map((service) => `<option value="${service._id}">${service.name}</option>`).join('')}
-  `;
+const initHeroSlider = () => {
+  const slider = document.getElementById('heroSlider');
+  if (!slider) return;
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const feedback = document.getElementById('quote-feedback');
-    const formData = new FormData(form);
-    feedback.textContent = 'Submitting your quote request...';
+  const slides = Array.from(slider.querySelectorAll('.hero-stack-slide'));
+  const total = slides.length;
+  let current = 0;
+  let animating = false;
+  let timer = null;
 
-    try {
-      await api.post(apiEndpoints.quotes, formData);
-      feedback.textContent = 'Your quote request was submitted successfully.';
-      form.reset();
-    } catch (error) {
-      feedback.textContent = error.message;
-    }
+  const DURATION = 420;
+  const easing = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+  const set = (el, styles) => Object.assign(el.style, styles);
+
+  const applyStates = () => {
+    slides.forEach((s, i) => {
+      s.removeAttribute('style');
+      const pos = (i - current + total) % total;
+      s.classList.remove('is-active', 'is-next', 'is-back');
+      if (pos === 0) s.classList.add('is-active');
+      else if (pos === 1) s.classList.add('is-next');
+      else s.classList.add('is-back');
+    });
+  };
+
+  const advance = () => {
+    if (animating) return;
+    animating = true;
+
+    const front = slides[current];
+    const peek  = slides[(current + 1) % total];
+    const back  = slides[(current + 2) % total];
+
+    // Freeze all at current painted positions before touching anything
+    set(front, { transition: 'none', zIndex: '1',  transform: 'translateX(0)',       opacity: '1' });
+    set(peek,  { transition: 'none', zIndex: '5',  transform: 'translateX(11.12%)',  opacity: '1' });
+    set(back,  { transition: 'none', zIndex: '2',  transform: 'translateX(11.12%)',  opacity: '0' });
+
+    // Force reflow so the browser registers the starting positions
+    void slider.offsetWidth;
+
+    // Now animate all three simultaneously
+    const tr = `transform ${DURATION}ms ${easing}, opacity ${DURATION}ms ease`;
+    set(front, { transition: tr, transform: 'translateX(11.12%)', opacity: '0' });
+    set(peek,  { transition: tr, transform: 'translateX(0)',       opacity: '1' });
+    set(back,  { transition: tr, transform: 'translateX(11.12%)', opacity: '1' });
+
+    setTimeout(() => {
+      current = (current + 1) % total;
+      applyStates();
+      animating = false;
+    }, DURATION + 20);
+  };
+
+  const startAuto = () => { timer = setInterval(advance, 2600); };
+  const stopAuto  = () => { clearInterval(timer); timer = null; };
+
+  applyStates();
+  startAuto();
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+};
+
+const initPfFilters = () => {
+  const filters = document.querySelectorAll('.pf-filter');
+  const cards = document.querySelectorAll('.pf-card');
+  if (!filters.length) return;
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(f => f.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
   });
 };
 
-const initAdminLogin = () => {
-  const form = document.getElementById('admin-login-form');
-  if (!form) return;
+const initTestimonialSlider = () => {
+  const slides = Array.from(document.querySelectorAll('.ts-slide'));
+  const dots = Array.from(document.querySelectorAll('.ts-dot'));
+  if (!slides.length) return;
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const feedback = document.getElementById('admin-login-feedback');
-    const payload = Object.fromEntries(new FormData(form).entries());
-    feedback.textContent = 'Authenticating...';
+  let current = 0;
+  let timer = null;
 
-    try {
-      const { loginAdmin } = await loadAuthModule();
-      await loginAdmin(payload);
-      window.location.href = `${adminBaseUrl}/admin`;
-    } catch (error) {
-      feedback.textContent = error.message;
-    }
+  const goTo = (index) => {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = index;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  };
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+  const resetTimer = () => {
+    clearInterval(timer);
+    timer = setInterval(() => goTo((current + 1) % slides.length), 5000);
+  };
+
+  resetTimer();
+};
+
+const initFaq = () => {
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+      item.classList.toggle('is-open', !isOpen);
+      trigger.querySelector('.faq-icon').textContent = isOpen ? '+' : '−';
+    });
   });
 };
 
 const initPage = async () => {
-  mountSharedShell();
+  initMegaNav();
+  initActiveNav();
   initHeaderMotion();
 
   const page = document.body.dataset.page;
 
-  try {
-    if (page === 'home') {
-      const { loadPortfolioCards } = await loadPortfolioModule();
-      await Promise.all([
-        loadPortfolioCards('featured-portfolio', { featured: true })
-      ]);
-    }
+  if (page === 'home') {
+    initHeroSlider();
+    initFaq();
+    initTestimonialSlider();
+    loadPortfolioCards('featured-portfolio', { featured: true });
+  }
 
-    if (page === 'services') {
-      const servicesGrid = document.getElementById('services-grid');
-      if (servicesGrid) {
-        await renderServices('services-grid');
-      }
-    }
+  if (page === 'portfolio') {
+    initPfFilters();
+  }
 
-    if (page === 'portfolio') {
-      const { initPortfolioFilters } = await loadPortfolioModule();
-      await initPortfolioFilters();
-    }
+  if (page === 'case-study') {
+    loadCaseStudy();
+  }
 
-    if (page === 'case-study') {
-      const { loadCaseStudy } = await loadPortfolioModule();
-      await loadCaseStudy();
-    }
-
-    if (page === 'contact') {
-      initContactForm();
-    }
-
-    if (page === 'quote') {
-      await initQuoteForm();
-    }
-
-    if (page === 'admin-login') {
-      initAdminLogin();
-    }
-
-    if (page === 'dashboard') {
-      const { initDashboard } = await loadDashboardModule();
-      await initDashboard();
-    }
-  } catch (error) {
-    const target =
-      document.querySelector('#home-services, #featured-portfolio, #services-grid, #portfolio-grid, #case-study-container, #dashboard-panel') ||
-      document.querySelector('main');
-
-    if (target) {
-      target.insertAdjacentHTML(
-        'beforeend',
-        `<div class="error-banner">Unable to load content right now. ${error.message}</div>`
-      );
-    }
+  if (page === 'contact') {
+    initContactForm();
   }
 
   initScrollAnimations();
