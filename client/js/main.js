@@ -138,7 +138,7 @@ const initContactForm = () => {
       }
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Send Message';
+      btn.textContent = 'Submit';
     }
   });
 };
