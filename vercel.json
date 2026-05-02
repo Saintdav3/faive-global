@@ -1,0 +1,5 @@
+{
+  "outputDirectory": "client",
+  "cleanUrls": true,
+  "trailingSlash": false
+}
