@@ -602,9 +602,10 @@ img {
 .brand-logo-item:hover { opacity: 0.8; }
 
 .brand-logo-item img {
-  height: 52px;
-  width: auto;
+  height: 72px;
+  width: 72px;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 /* ============================================================
@@ -2719,9 +2720,10 @@ textarea.form-control {
 }
 
 .contact-brand-item img {
-  width: 80px;
-  height: 40px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
+  border-radius: 50%;
   opacity: 1;
   transition: opacity 0.2s;
 }
