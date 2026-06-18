@@ -64,6 +64,13 @@
       .cs-cta-btn { display: inline-block; margin-top: 2rem; padding: 0.9rem 2.5rem; background: var(--color-gold); color: var(--color-ink); font-family: 'Gilroy-Bold', sans-serif; border-radius: 3rem; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.01em; transition: opacity 0.2s; }
       .cs-cta-btn:hover { opacity: 0.85; color: var(--color-ink); }
 
+      .cs-back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Gilroy-Bold', sans-serif; font-size: 0.875rem; color: var(--color-muted); text-decoration: none; margin-bottom: 1.5rem; }
+      .cs-back-link:hover { color: var(--color-ink); }
+      .cs-back-link svg { flex-shrink: 0; }
+      .cs-brand-view-link { display: inline-block; margin-top: 1.25rem; font-family: 'Gilroy-Bold', sans-serif; font-size: 0.875rem; color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
+      .cs-brand-view-link:hover { opacity: 0.6; color: var(--color-ink); }
+      #brand-study-mount { min-height: 60vh; }
+
       @media (max-width: 767px) {
         .cs-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         .cs-cs-grid { grid-template-columns: 1fr; }
@@ -228,6 +235,11 @@
 
     <!-- Beauty & Skincare Creator Portfolio -->
     <main class="page-shell">
+      <!-- Individual brand mount — shown when ?brand= param is present -->
+      <div id="brand-study-mount" style="display:none"></div>
+
+      <!-- Portfolio overview — hidden by JS when a brand param is active -->
+      <div id="overview-content">
 
       <!-- Hero -->
       <section class="cs-pf-hero">
@@ -355,6 +367,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=medicube" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- Eqqualberry -->
@@ -417,6 +430,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=eqqualberry" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- AXIS-Y -->
@@ -465,6 +479,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=axis-y" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- Dr. Althea -->
@@ -495,6 +510,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=dr-althea" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- Anua -->
@@ -525,6 +541,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=anua" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- Vaseline -->
@@ -569,6 +586,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=vaseline" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
           <!-- The Ordinary -->
@@ -599,6 +617,7 @@
                 </a>
               </div>
             </div>
+            <a href="/pages/case-study?brand=the-ordinary" class="cs-brand-view-link">View Full Case Study</a>
           </div>
 
         </div>
@@ -614,6 +633,7 @@
         </div>
       </section>
 
+      </div><!-- /overview-content -->
     </main>
 
     <!-- Site Footer -->

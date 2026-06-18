@@ -1,4 +1,4 @@
-import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards } from './portfolio.js';
+import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards, loadBrandPage } from './portfolio.js';
 import { initMegaNav } from './mega-nav.js';
 
 // In development: points to the local Express server.
@@ -282,7 +282,13 @@ const initPage = async () => {
   }
 
   if (page === 'case-study') {
-    loadCaseStudy();
+    const rendered = loadBrandPage('brand-study-mount');
+    if (rendered) {
+      const overview = document.getElementById('overview-content');
+      if (overview) overview.style.display = 'none';
+      const mount = document.getElementById('brand-study-mount');
+      if (mount) mount.style.display = '';
+    }
   }
 
   if (page === 'contact') {

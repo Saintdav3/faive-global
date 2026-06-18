@@ -443,3 +443,158 @@ export const loadCaseStudy = () => {
     </div>
   `;
 };
+
+// ── Individual brand case study pages ──
+
+const brandStudies = [
+  {
+    id: 'medicube',
+    name: 'Medicube',
+    views: '78.5M+',
+    description: 'Medicube partnered with Fainna on a high-performing skincare content series focused on ingredient education, product discovery, and routine-based skincare storytelling.',
+    challenge: 'Communicate the benefits of advanced skincare ingredients in a way that feels simple, relatable, and engaging for TikTok audiences.',
+    strategy: 'Created educational, problem-solution driven content that connected visible skincare concerns with product benefits while simplifying ingredient-heavy messaging.',
+    results: ['78.5M+ Total Views', '49.6M Highest Performing Video', '4 Published TikTok Videos', 'Multiple Viral Product Education Assets'],
+    videos: [
+      { title: 'Peptide Serum', views: '49.6M Views', url: 'https://vt.tiktok.com/ZS91wYFUc/' },
+      { title: 'Kojic Acid + Turmeric', views: '19.3M Views', url: 'https://vt.tiktok.com/ZS91TusqN/' },
+      { title: 'Kojic Peel Acid Duo', views: '8.6M Views', url: 'https://vt.tiktok.com/ZS91ToUFm/' },
+      { title: 'Global Mask', views: '1M Views', url: 'https://vt.tiktok.com/ZS91wu699/' },
+    ],
+  },
+  {
+    id: 'eqqualberry',
+    name: 'Eqqualberry',
+    views: '11.3M+',
+    description: 'Eqqualberry partnered with Fainna on a multi-video skincare campaign designed to educate consumers on targeted skincare solutions while increasing product awareness.',
+    challenge: 'Increase consumer understanding of product benefits while making skincare education visually engaging and easy to follow.',
+    strategy: 'Used benefit-first storytelling and highly visual skincare demonstrations to simplify product messaging and improve audience retention.',
+    results: ['11.3M+ Total Views', '8.1M Highest Performing Video', '4 Published TikTok Videos'],
+    videos: [
+      { title: 'Purple Rice Cleansing Oil', views: '8.1M Views', url: 'https://vt.tiktok.com/ZS9J1bpEt/' },
+      { title: 'Botox Serum', views: '1.5M Views', url: 'https://vt.tiktok.com/ZS91w1K1k/' },
+      { title: 'NAD Cream', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91TKJJ2/' },
+      { title: 'Bikini Lines', views: '621K Views', url: 'https://vt.tiktok.com/ZS91wkPEY/' },
+    ],
+  },
+  {
+    id: 'axis-y',
+    name: 'AXIS-Y',
+    views: '2.1M+',
+    description: 'AXIS-Y partnered with Fainna to create educational skincare content focused on treatment products and ingredient-led skincare solutions.',
+    challenge: 'Help consumers understand how specialized skincare products fit into their routines.',
+    strategy: 'Focused on concern-specific skincare education and simplified product explanations that connected ingredients to everyday skincare goals.',
+    results: ['2.1M+ Total Views', '1.1M Highest Performing Video', '2 Published TikTok Videos'],
+    videos: [
+      { title: 'Collagen Serum', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91Ts3o4/' },
+      { title: 'Triple PDRN', views: '1M Views', url: 'https://vt.tiktok.com/ZS91TvWKv/' },
+    ],
+  },
+  {
+    id: 'dr-althea',
+    name: 'Dr. Althea',
+    views: '1.1M+',
+    description: 'Premium skincare education designed to communicate product efficacy through relatable consumer storytelling.',
+    results: ['1.1M+ Views', '1 Published Video'],
+    videos: [
+      { title: 'Reju 500 Cream', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91TXNyQ/' },
+    ],
+  },
+  {
+    id: 'anua',
+    name: 'Anua',
+    views: '555K+',
+    description: 'Trust-led skincare content designed to increase product consideration and brand familiarity.',
+    results: ['555K+ Views', '1 Published Video'],
+    videos: [
+      { title: 'Skincare Steps', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wyP9A/' },
+    ],
+  },
+  {
+    id: 'vaseline',
+    name: 'Vaseline',
+    views: '2.84M+',
+    description: 'Creative beauty hacks that repositioned a familiar household product through practical skincare applications.',
+    results: ['2.84M+ Views', '3 Published Videos'],
+    videos: [
+      { title: 'Video 1', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wMmBr/' },
+      { title: 'Video 2', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wSYaV/' },
+      { title: 'Video 3', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91w9G21/' },
+    ],
+  },
+  {
+    id: 'the-ordinary',
+    name: 'The Ordinary',
+    views: '575K+',
+    description: 'Educational skincare content focused on pigmentation concerns and solution-based skincare routines.',
+    results: ['575K+ Views', '1 Published Video'],
+    videos: [
+      { title: 'Watch Video', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wQaWQ/' },
+    ],
+  },
+];
+
+const ttIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg>';
+const arrowLeft = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg>';
+
+export const loadBrandPage = (mountId) => {
+  const mount = document.getElementById(mountId);
+  if (!mount) return false;
+
+  const brandId = new URLSearchParams(window.location.search).get('brand');
+  if (!brandId) return false;
+
+  const brand = brandStudies.find((b) => b.id === brandId);
+  if (!brand) return false;
+
+  document.title = brand.name + ' | Fainna Portfolio';
+
+  const csSection = brand.challenge && brand.strategy
+    ? `<div class="cs-cs-grid">
+        <div class="cs-cs-card"><h4>Challenge</h4><p>${brand.challenge}</p></div>
+        <div class="cs-cs-card"><h4>Strategy</h4><p>${brand.strategy}</p></div>
+      </div>`
+    : '';
+
+  const resultItems = brand.results.map((r) => `<li>${r}</li>`).join('');
+
+  const videoCards = brand.videos
+    .map(
+      (v) => `
+      <a href="${v.url}" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+        <div class="cs-video-icon">${ttIcon}</div>
+        <div class="cs-video-info">
+          <div class="cs-video-title">${v.title}</div>
+          <div class="cs-video-views">${v.views}</div>
+        </div>
+      </a>`
+    )
+    .join('');
+
+  mount.innerHTML = `
+    <div class="container" style="padding-top:2.5rem;padding-bottom:5rem;">
+      <a href="/pages/case-study" class="cs-back-link">${arrowLeft} Back to Portfolio</a>
+      <div class="cs-brand-block" style="border-bottom:none;padding-top:2rem;">
+        <div class="cs-brand-header">
+          <h1 class="cs-brand-name">${brand.name}</h1>
+          <span class="cs-brand-views-badge">${brand.views} Views Generated</span>
+        </div>
+        <p class="cs-brand-desc">${brand.description}</p>
+        ${csSection}
+        <div class="cs-results-block">
+          <h4>Results</h4>
+          <ul class="cs-results-pills">${resultItems}</ul>
+        </div>
+        <div class="cs-videos-block">
+          <h4>Featured Videos</h4>
+          <div class="cs-video-grid">${videoCards}</div>
+        </div>
+      </div>
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e8e4da;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+        <a href="/pages/case-study" class="cs-back-link" style="margin-bottom:0;">${arrowLeft} View All Brands</a>
+        <a href="/pages/contact" class="btn btn-gold btn-pill" style="font-size:0.875rem;padding:0.6rem 1.75rem;">Work With Me</a>
+      </div>
+    </div>`;
+
+  return true;
+};
