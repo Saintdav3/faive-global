@@ -1,4 +1,4 @@
-import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards, loadBrandPage } from './portfolio.js';
+import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards, loadBrandPage, loadBrandOverview } from './portfolio.js';
 import { initMegaNav } from './mega-nav.js';
 
 // In development: points to the local Express server.
@@ -288,6 +288,8 @@ const initPage = async () => {
       if (overview) overview.style.display = 'none';
       const mount = document.getElementById('brand-study-mount');
       if (mount) mount.style.display = '';
+    } else {
+      loadBrandOverview('brand-grid-section');
     }
   }
 

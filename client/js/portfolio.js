@@ -537,6 +537,36 @@ const brandStudies = [
 const ttIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg>';
 const arrowLeft = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg>';
 
+export const loadBrandOverview = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+
+  const cards = brandStudies
+    .map(
+      (b) => `
+      <div class="col-lg-4 col-md-6">
+        <a href="/pages/case-study?brand=${b.id}" class="cs-overview-card">
+          <div class="cs-overview-card-header">
+            <span class="cs-overview-card-name">${b.name}</span>
+            <span class="cs-overview-card-badge">${b.views}</span>
+          </div>
+          <p class="cs-overview-card-desc">${b.description}</p>
+          <div class="cs-overview-card-footer">
+            <span>${b.videos.length} Published ${b.videos.length === 1 ? 'Video' : 'Videos'}</span>
+            <span class="cs-overview-card-link">View Case Study</span>
+          </div>
+        </a>
+      </div>`
+    )
+    .join('');
+
+  section.innerHTML = `
+    <div class="container">
+      <div class="cs-cases-heading"><div class="eyebrow">Featured Case Studies</div></div>
+      <div class="row g-4">${cards}</div>
+    </div>`;
+};
+
 export const loadBrandPage = (mountId) => {
   const mount = document.getElementById(mountId);
   if (!mount) return false;
