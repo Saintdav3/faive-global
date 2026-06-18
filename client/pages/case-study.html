@@ -11,6 +11,66 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      /* ── Beauty & Skincare Creator Portfolio styles ── */
+      .cs-pf-hero { padding: 7rem 0 4rem; }
+      .cs-pf-title { font-family: 'Gilroy-Bold', sans-serif; font-size: clamp(2rem, 4vw, 3.25rem); margin: 0.5rem 0 1.25rem; }
+      .cs-pf-subtitle { font-family: 'Gilroy-Bold', sans-serif; font-size: 1.2rem; color: var(--color-muted); margin-bottom: 1.5rem; }
+      .cs-pf-desc { max-width: 680px; line-height: 1.75; color: var(--color-ink); margin-bottom: 1rem; }
+
+      .cs-stats-wrap { padding: 3rem 0; border-top: 1px solid #e8e4da; border-bottom: 1px solid #e8e4da; margin: 0 0 0; }
+      .cs-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+      .cs-stat-value { font-family: 'Gilroy-Bold', sans-serif; font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1; margin-bottom: 0.4rem; }
+      .cs-stat-label { font-size: 0.8rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+      .cs-trusted-section { background: var(--color-ink); color: #fff; padding: 3.5rem 0; }
+      .cs-trusted-section .eyebrow { color: var(--color-gold); }
+      .cs-brand-pills { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1.25rem; }
+      .cs-brand-pill { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.85rem; border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); padding: 0.4rem 1rem; border-radius: 2rem; }
+
+      .cs-cases-section { padding: 4rem 0 2rem; }
+      .cs-cases-heading { margin-bottom: 3rem; }
+
+      .cs-brand-block { padding: 3.5rem 0; border-bottom: 1px solid #e8e4da; }
+      .cs-brand-block:last-child { border-bottom: none; padding-bottom: 1rem; }
+      .cs-brand-header { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1rem; }
+      .cs-brand-name { font-family: 'Gilroy-Bold', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.25rem); margin: 0; }
+      .cs-brand-views-badge { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.825rem; background: var(--color-gold); color: var(--color-ink); padding: 0.3rem 0.875rem; border-radius: 2rem; white-space: nowrap; }
+      .cs-brand-desc { color: var(--color-muted); max-width: 660px; line-height: 1.7; margin-bottom: 1.75rem; }
+
+      .cs-cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.75rem; }
+      .cs-cs-card { background: #f9f7f3; border-radius: 10px; padding: 1.375rem 1.5rem; }
+      .cs-cs-card h4 { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 0.625rem; }
+      .cs-cs-card p { margin: 0; font-size: 0.925rem; line-height: 1.65; }
+
+      .cs-results-block { margin-bottom: 1.75rem; }
+      .cs-results-block h4 { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 0.75rem; }
+      .cs-results-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+      .cs-results-pills li { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.825rem; background: var(--color-ink); color: #fff; padding: 0.35rem 0.9rem; border-radius: 2rem; }
+
+      .cs-videos-block h4 { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); margin-bottom: 1rem; }
+      .cs-video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.875rem; }
+      .cs-video-card { display: flex; align-items: center; gap: 0.875rem; padding: 0.875rem 1.125rem; border: 1.5px solid #e8e4da; border-radius: 10px; text-decoration: none; color: var(--color-ink); transition: border-color 0.2s ease, background 0.2s ease; }
+      .cs-video-card:hover { border-color: var(--color-ink); background: #f9f7f3; color: var(--color-ink); }
+      .cs-video-icon { flex-shrink: 0; width: 34px; height: 34px; background: var(--color-ink); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+      .cs-video-icon svg { width: 16px; height: 16px; fill: #fff; }
+      .cs-video-info { min-width: 0; }
+      .cs-video-title { font-family: 'Gilroy-Bold', sans-serif; font-size: 0.875rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .cs-video-views { font-size: 0.775rem; color: var(--color-muted); margin-top: 0.2rem; }
+
+      .cs-cta-section { background: var(--color-ink); color: #fff; padding: 6rem 0; text-align: center; }
+      .cs-cta-section h2 { font-family: 'Gilroy-Bold', sans-serif; font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: 1rem; }
+      .cs-cta-section p { color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 0.75rem; line-height: 1.65; }
+      .cs-cta-btn { display: inline-block; margin-top: 2rem; padding: 0.9rem 2.5rem; background: var(--color-gold); color: var(--color-ink); font-family: 'Gilroy-Bold', sans-serif; border-radius: 3rem; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.01em; transition: opacity 0.2s; }
+      .cs-cta-btn:hover { opacity: 0.85; color: var(--color-ink); }
+
+      @media (max-width: 767px) {
+        .cs-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .cs-cs-grid { grid-template-columns: 1fr; }
+        .cs-brand-header { gap: 0.625rem; }
+        .cs-pf-hero { padding: 5rem 0 2.5rem; }
+      }
+    </style>
   </head>
   <body data-page="case-study">
 
@@ -166,12 +226,394 @@
       </section>
     </div>
 
-    <!-- Case Study Content -->
+    <!-- Beauty & Skincare Creator Portfolio -->
     <main class="page-shell">
-      <!-- Dynamic Case Study Mount -->
-      <section class="section-shell">
-        <div class="container" id="case-study-container"></div>
+
+      <!-- Hero -->
+      <section class="cs-pf-hero">
+        <div class="container">
+          <div class="eyebrow">Creator Portfolio</div>
+          <h1 class="cs-pf-title">Beauty &amp; Skincare Creator Portfolio</h1>
+          <p class="cs-pf-subtitle">Turning Skincare Education Into Product Discovery</p>
+          <p class="cs-pf-desc">
+            I partner with beauty and skincare brands to create content that simplifies product benefits, builds consumer trust, and drives product discovery through creator-led storytelling.
+          </p>
+          <p class="cs-pf-desc">
+            Over the years, I've worked with leading skincare brands across K-Beauty, clinical skincare, and beauty wellness categories, producing educational content that has generated over <strong>96.9 Million Views</strong> across TikTok.
+          </p>
+        </div>
       </section>
+
+      <!-- Portfolio Snapshot -->
+      <section class="section-shell">
+        <div class="container">
+          <div class="cs-stats-wrap">
+            <div class="eyebrow" style="margin-bottom:1.5rem;">Portfolio Snapshot</div>
+            <div class="cs-stats-grid">
+              <div class="cs-stat">
+                <div class="cs-stat-value">96.9M+</div>
+                <div class="cs-stat-label">Total Views Generated</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-value">7</div>
+                <div class="cs-stat-label">Featured Brand Partnerships</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-value">16</div>
+                <div class="cs-stat-label">Published Brand Videos</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-value">78.5M+</div>
+                <div class="cs-stat-label">Views Generated For Medicube</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trusted By -->
+      <section class="cs-trusted-section">
+        <div class="container">
+          <div class="eyebrow">Trusted By</div>
+          <div class="cs-brand-pills">
+            <span class="cs-brand-pill">Medicube</span>
+            <span class="cs-brand-pill">Eqqualberry</span>
+            <span class="cs-brand-pill">AXIS-Y</span>
+            <span class="cs-brand-pill">Anua</span>
+            <span class="cs-brand-pill">Dr. Althea</span>
+            <span class="cs-brand-pill">Vaseline</span>
+            <span class="cs-brand-pill">The Ordinary</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Case Studies -->
+      <section class="cs-cases-section">
+        <div class="container">
+          <div class="cs-cases-heading">
+            <div class="eyebrow">Featured Case Studies</div>
+          </div>
+
+          <!-- Medicube -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">Medicube</h2>
+              <span class="cs-brand-views-badge">78.5M+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Medicube partnered with Fainna on a high-performing skincare content series focused on ingredient education, product discovery, and routine-based skincare storytelling.
+            </p>
+            <div class="cs-cs-grid">
+              <div class="cs-cs-card">
+                <h4>Challenge</h4>
+                <p>Communicate the benefits of advanced skincare ingredients in a way that feels simple, relatable, and engaging for TikTok audiences.</p>
+              </div>
+              <div class="cs-cs-card">
+                <h4>Strategy</h4>
+                <p>Created educational, problem-solution driven content that connected visible skincare concerns with product benefits while simplifying ingredient-heavy messaging.</p>
+              </div>
+            </div>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>78.5M+ Total Views</li>
+                <li>49.6M Highest Performing Video</li>
+                <li>4 Published TikTok Videos</li>
+                <li>Multiple Viral Product Education Assets</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Videos</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91wYFUc/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Peptide Serum</div>
+                    <div class="cs-video-views">49.6M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91TusqN/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Kojic Acid + Turmeric</div>
+                    <div class="cs-video-views">19.3M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91ToUFm/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Kojic Peel Acid Duo</div>
+                    <div class="cs-video-views">8.6M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91wu699/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Global Mask</div>
+                    <div class="cs-video-views">1M Views</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eqqualberry -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">Eqqualberry</h2>
+              <span class="cs-brand-views-badge">11.3M+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Eqqualberry partnered with Fainna on a multi-video skincare campaign designed to educate consumers on targeted skincare solutions while increasing product awareness.
+            </p>
+            <div class="cs-cs-grid">
+              <div class="cs-cs-card">
+                <h4>Challenge</h4>
+                <p>Increase consumer understanding of product benefits while making skincare education visually engaging and easy to follow.</p>
+              </div>
+              <div class="cs-cs-card">
+                <h4>Strategy</h4>
+                <p>Used benefit-first storytelling and highly visual skincare demonstrations to simplify product messaging and improve audience retention.</p>
+              </div>
+            </div>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>11.3M+ Total Views</li>
+                <li>8.1M Highest Performing Video</li>
+                <li>4 Published TikTok Videos</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Videos</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS9J1bpEt/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Purple Rice Cleansing Oil</div>
+                    <div class="cs-video-views">8.1M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91w1K1k/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Botox Serum</div>
+                    <div class="cs-video-views">1.5M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91TKJJ2/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">NAD Cream</div>
+                    <div class="cs-video-views">1.1M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91wkPEY/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Bikini Lines</div>
+                    <div class="cs-video-views">621K Views</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AXIS-Y -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">AXIS-Y</h2>
+              <span class="cs-brand-views-badge">2.1M+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              AXIS-Y partnered with Fainna to create educational skincare content focused on treatment products and ingredient-led skincare solutions.
+            </p>
+            <div class="cs-cs-grid">
+              <div class="cs-cs-card">
+                <h4>Challenge</h4>
+                <p>Help consumers understand how specialized skincare products fit into their routines.</p>
+              </div>
+              <div class="cs-cs-card">
+                <h4>Strategy</h4>
+                <p>Focused on concern-specific skincare education and simplified product explanations that connected ingredients to everyday skincare goals.</p>
+              </div>
+            </div>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>2.1M+ Total Views</li>
+                <li>1.1M Highest Performing Video</li>
+                <li>2 Published TikTok Videos</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Videos</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91Ts3o4/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Collagen Serum</div>
+                    <div class="cs-video-views">1.1M Views</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91TvWKv/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Triple PDRN</div>
+                    <div class="cs-video-views">1M Views</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dr. Althea -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">Dr. Althea</h2>
+              <span class="cs-brand-views-badge">1.1M+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Premium skincare education designed to communicate product efficacy through relatable consumer storytelling.
+            </p>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>1.1M+ Views</li>
+                <li>1 Published Video</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Video</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91TXNyQ/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Reju 500 Cream</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anua -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">Anua</h2>
+              <span class="cs-brand-views-badge">555K+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Trust-led skincare content designed to increase product consideration and brand familiarity.
+            </p>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>555K+ Views</li>
+                <li>1 Published Video</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Video</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91wyP9A/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Skincare Steps</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vaseline -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">Vaseline</h2>
+              <span class="cs-brand-views-badge">2.84M+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Creative beauty hacks that repositioned a familiar household product through practical skincare applications.
+            </p>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>2.84M+ Views</li>
+                <li>3 Published Videos</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Videos</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91wMmBr/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Video 1</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91wSYaV/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Video 2</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+                <a href="https://vt.tiktok.com/ZS91w9G21/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Video 3</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Ordinary -->
+          <div class="cs-brand-block">
+            <div class="cs-brand-header">
+              <h2 class="cs-brand-name">The Ordinary</h2>
+              <span class="cs-brand-views-badge">575K+ Views Generated</span>
+            </div>
+            <p class="cs-brand-desc">
+              Educational skincare content focused on pigmentation concerns and solution-based skincare routines.
+            </p>
+            <div class="cs-results-block">
+              <h4>Results</h4>
+              <ul class="cs-results-pills">
+                <li>575K+ Views</li>
+                <li>1 Published Video</li>
+              </ul>
+            </div>
+            <div class="cs-videos-block">
+              <h4>Featured Video</h4>
+              <div class="cs-video-grid">
+                <a href="https://vt.tiktok.com/ZS91wQaWQ/" class="cs-video-card" target="_blank" rel="noopener noreferrer">
+                  <div class="cs-video-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 4.2c.6 1.6 1.8 2.8 3.4 3.3v2.8c-1.2 0-2.3-.3-3.4-.9v5.5a4.9 4.9 0 1 1-4.9-4.9c.3 0 .7 0 1 .1v2.8a2.3 2.3 0 1 0 1.3 2V4.2h2.6Z"/></svg></div>
+                  <div class="cs-video-info">
+                    <div class="cs-video-title">Watch Video</div>
+                    <div class="cs-video-views">Watch on TikTok</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cs-cta-section">
+        <div class="container">
+          <h2>Let's Build Your Next Skincare Campaign</h2>
+          <p>Looking for a creator who can turn complex skincare messaging into engaging, consumer-friendly content?</p>
+          <p>Let's create content that educates, builds trust, and drives product discovery.</p>
+          <a href="/pages/contact" class="cs-cta-btn">Get in Touch</a>
+        </div>
+      </section>
+
     </main>
 
     <!-- Site Footer -->
