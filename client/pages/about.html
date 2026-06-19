@@ -57,41 +57,116 @@
       }
       .ab-hero-link:hover { color: var(--color-ink, #1a1a18); }
 
-      /* Right side stat card */
-      .ab-stat-panel {
-        background: var(--color-ivory, #f5f2eb);
+      /* Hero image placeholder */
+      .ab-img-portrait {
+        width: 100%;
+        aspect-ratio: 3/4;
         border-radius: 20px;
-        padding: 2.5rem;
+        background: #ede9e0;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        color: #b5b0a5;
+        position: relative;
+        overflow: hidden;
       }
-      .ab-stat-item {}
+      .ab-img-portrait::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, #f0ece3 0%, #e4dfd4 100%);
+      }
+      .ab-img-portrait-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .ab-img-portrait svg { opacity: 0.4; }
+      .ab-img-portrait-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+
+      /* Bio image placeholder */
+      .ab-img-landscape {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+        background: #ede9e0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        color: #b5b0a5;
+        position: relative;
+        overflow: hidden;
+      }
+      .ab-img-landscape::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #f0ece3 0%, #e4dfd4 100%);
+      }
+      .ab-img-landscape-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .ab-img-landscape svg { opacity: 0.4; }
+      .ab-img-landscape-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+
+      /* Stats strip */
+      .ab-stats-strip {
+        background: #fff;
+        border-top: 1px solid #e8e4da;
+        border-bottom: 1px solid #e8e4da;
+        padding: 2rem 0;
+      }
+      .ab-stats-row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .ab-stat-cell {
+        flex: 1;
+        min-width: 140px;
+        padding: 0.75rem 1.5rem;
+        border-right: 1px solid #e8e4da;
+      }
+      .ab-stat-cell:last-child { border-right: none; }
       .ab-stat-num {
         font-family: 'Gilroy-Bold', sans-serif;
-        font-size: 2.5rem;
+        font-size: 1.875rem;
         color: var(--color-ink, #1a1a18);
         line-height: 1;
         margin-bottom: 0.3rem;
       }
       .ab-stat-label {
-        font-size: 0.78rem;
-        letter-spacing: 0.07em;
+        font-size: 0.7rem;
+        letter-spacing: 0.09em;
         text-transform: uppercase;
         color: var(--color-muted, #6b6b60);
       }
-      .ab-stat-divider {
-        height: 1px;
-        background: #e0dbd0;
-        margin: 0;
-      }
-      .ab-stat-quote {
-        font-family: 'Gilroy-Bold', sans-serif;
-        font-size: 1rem;
-        color: var(--color-ink, #1a1a18);
-        line-height: 1.5;
-        font-style: italic;
+
+      @media (max-width: 576px) {
+        .ab-stat-cell { border-right: none; border-bottom: 1px solid #e8e4da; min-width: 50%; }
+        .ab-stat-cell:nth-child(odd) { border-right: 1px solid #e8e4da; }
+        .ab-stat-cell:last-child { border-bottom: none; }
       }
 
       /* ── Bio section ── */
@@ -380,7 +455,7 @@
       <section class="ab-hero">
         <div class="container">
           <div class="row align-items-center g-5">
-            <div class="col-lg-7">
+            <div class="col-lg-6">
               <div class="ab-eyebrow">About Fainna</div>
               <h1>More Than<br>Just Content.</h1>
               <p class="ab-hero-body">
@@ -394,47 +469,71 @@
                 </a>
               </div>
             </div>
-            <div class="col-lg-5">
-              <div class="ab-stat-panel">
-                <div class="ab-stat-item">
-                  <div class="ab-stat-num">96.9M+</div>
-                  <div class="ab-stat-label">Total Views Generated</div>
+            <div class="col-lg-6">
+              <!-- Portrait photo placeholder -->
+              <div class="ab-img-portrait">
+                <div class="ab-img-portrait-inner">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  <span class="ab-img-portrait-label">Creator Photo</span>
                 </div>
-                <div class="ab-stat-divider"></div>
-                <div class="ab-stat-item">
-                  <div class="ab-stat-num">7</div>
-                  <div class="ab-stat-label">Brand Partnerships</div>
-                </div>
-                <div class="ab-stat-divider"></div>
-                <div class="ab-stat-item">
-                  <div class="ab-stat-num">16</div>
-                  <div class="ab-stat-label">Published Videos</div>
-                </div>
-                <div class="ab-stat-divider"></div>
-                <p class="ab-stat-quote">"Content people trust and brands remember."</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Stats strip -->
+      <div class="ab-stats-strip">
+        <div class="container">
+          <div class="ab-stats-row">
+            <div class="ab-stat-cell">
+              <div class="ab-stat-num">96.9M+</div>
+              <div class="ab-stat-label">Total Views</div>
+            </div>
+            <div class="ab-stat-cell">
+              <div class="ab-stat-num">7</div>
+              <div class="ab-stat-label">Brand Partnerships</div>
+            </div>
+            <div class="ab-stat-cell">
+              <div class="ab-stat-num">16</div>
+              <div class="ab-stat-label">Published Videos</div>
+            </div>
+            <div class="ab-stat-cell">
+              <div class="ab-stat-num">78.5M+</div>
+              <div class="ab-stat-label">Views for Medicube</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Bio -->
       <section class="ab-bio">
         <div class="container">
-          <div class="ab-bio-inner">
-            <h2 class="ab-bio-heading">Building a Community That Cares</h2>
-            <p>
-              Over the years, I've built a community that values authenticity, education, and real results. My content combines storytelling, relatable experiences, and product education in a way that feels genuine rather than promotional.
-            </p>
-            <p>
-              Whether it's skincare, self-care, beauty routines, lifestyle content, or UGC campaigns, my goal is always the same:
-            </p>
-            <div class="ab-bio-highlight">
-              Create content people trust and brands remember.
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <h2 class="ab-bio-heading">Building a Community That Cares</h2>
+              <p>
+                Over the years, I've built a community that values authenticity, education, and real results. My content combines storytelling, relatable experiences, and product education in a way that feels genuine rather than promotional.
+              </p>
+              <p>
+                Whether it's skincare, self-care, beauty routines, lifestyle content, or UGC campaigns, my goal is always the same:
+              </p>
+              <div class="ab-bio-highlight">
+                Create content people trust and brands remember.
+              </div>
+              <p>
+                I work with beauty and skincare brands across K-Beauty, clinical skincare, and wellness categories — bringing the same intentionality to every piece of content I create. Not just views, but genuine connection.
+              </p>
             </div>
-            <p>
-              I work with beauty and skincare brands across K-Beauty, clinical skincare, and wellness categories — bringing the same intentionality to every piece of content I create. Not just views, but genuine connection.
-            </p>
+            <div class="col-lg-6">
+              <!-- Lifestyle / content image placeholder -->
+              <div class="ab-img-landscape">
+                <div class="ab-img-landscape-inner">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  <span class="ab-img-landscape-label">Lifestyle Photo</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
