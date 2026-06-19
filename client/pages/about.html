@@ -4,13 +4,212 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | Faive Global</title>
+    <title>About | Fainna</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      /* ── About Hero ── */
+      .ab-hero {
+        padding: 5.5rem 0 4rem;
+        background: #fff;
+        border-bottom: 1px solid #e8e4da;
+      }
+      .ab-eyebrow {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+      }
+      .ab-hero h1 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(2.25rem, 5vw, 3.5rem);
+        line-height: 1.08;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 1.5rem;
+      }
+      .ab-hero-body {
+        font-size: 1.0625rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.8;
+        max-width: 520px;
+      }
+      .ab-hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+      .ab-hero-link {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.875rem;
+        color: var(--color-muted, #6b6b60);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .ab-hero-link:hover { color: var(--color-ink, #1a1a18); }
+
+      /* Right side stat card */
+      .ab-stat-panel {
+        background: var(--color-ivory, #f5f2eb);
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        height: 100%;
+      }
+      .ab-stat-item {}
+      .ab-stat-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 2.5rem;
+        color: var(--color-ink, #1a1a18);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .ab-stat-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--color-muted, #6b6b60);
+      }
+      .ab-stat-divider {
+        height: 1px;
+        background: #e0dbd0;
+        margin: 0;
+      }
+      .ab-stat-quote {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1rem;
+        color: var(--color-ink, #1a1a18);
+        line-height: 1.5;
+        font-style: italic;
+      }
+
+      /* ── Bio section ── */
+      .ab-bio {
+        padding: 5rem 0;
+        background: #fff;
+      }
+      .ab-bio-inner {
+        max-width: 680px;
+      }
+      .ab-bio-heading {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.4rem, 2.5vw, 1.875rem);
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+      .ab-bio p {
+        font-size: 1rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.85;
+        margin-bottom: 1.25rem;
+      }
+      .ab-bio p:last-child { margin-bottom: 0; }
+      .ab-bio-highlight {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1.2rem;
+        color: var(--color-ink, #1a1a18);
+        line-height: 1.5;
+        padding: 1.5rem 1.75rem;
+        border-left: 3px solid var(--color-gold, #c9a84c);
+        background: var(--color-ivory, #f5f2eb);
+        border-radius: 0 10px 10px 0;
+        margin: 2rem 0;
+      }
+
+      /* ── What I Offer ── */
+      .ab-offer {
+        padding: 5rem 0;
+        background: var(--color-ivory, #f5f2eb);
+      }
+      .ab-offer-heading {
+        margin-bottom: 3rem;
+      }
+      .ab-offer-heading h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.5rem;
+      }
+      .ab-offer-heading p {
+        color: var(--color-muted, #6b6b60);
+        font-size: 0.9375rem;
+        max-width: 480px;
+      }
+      .ab-service-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 1.75rem;
+        height: 100%;
+        border: 1.5px solid transparent;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .ab-service-card:hover {
+        border-color: #e8e4da;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      }
+      .ab-service-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .ab-service-title {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1.05rem;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.625rem;
+        line-height: 1.3;
+      }
+      .ab-service-desc {
+        font-size: 0.875rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* ── CTA ── */
+      .ab-cta {
+        background: var(--color-ink, #1a1a18);
+        padding: 5.5rem 0;
+        text-align: center;
+      }
+      .ab-cta-eyebrow {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+      }
+      .ab-cta h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+        color: #fff;
+        margin-bottom: 0.875rem;
+        line-height: 1.15;
+      }
+      .ab-cta p {
+        color: rgba(255,255,255,0.55);
+        max-width: 420px;
+        margin: 0 auto 2rem;
+        font-size: 0.9375rem;
+        line-height: 1.7;
+      }
+    </style>
   </head>
   <body data-page="about">
 
@@ -25,7 +224,7 @@
             </a>
           </div>
           <nav class="navigation-menu" aria-label="Main navigation">
-                        <div class="navigation-menu-wrapper">
+            <div class="navigation-menu-wrapper">
               <div class="navigation-link-wrapper">
                 <a data-menu-trigger="services" href="/pages/services" class="navigation-menu-item">
                   <div class="nav-item-text">Services</div>
@@ -129,35 +328,35 @@
             <div class="dropdown-portfolio-left">
               <a href="/pages/portfolio" class="dropdown-portfolio-category">
                 <strong>All Case Studies</strong>
-                <span>Read through our campaign work</span>
+                <span>Browse Fainna's brand work</span>
               </a>
               <hr class="dropdown-portfolio-divider" />
-              <a href="/pages/portfolio" class="dropdown-portfolio-category">
-                <strong>UGC Highlights</strong>
-                <span>A peek into our content library</span>
+              <a href="/pages/case-study" class="dropdown-portfolio-category">
+                <strong>Featured Results</strong>
+                <span>96.9M+ views generated</span>
               </a>
             </div>
             <div class="dropdown-portfolio-right">
               <div class="dropdown-portfolio-grid">
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Creator Campaign</strong><span>Lumière Seoul</span></div>
+                <a href="/pages/case-study?brand=medicube" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Medicube" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Skincare Education</strong><span>Medicube — 78.5M+</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-hero.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>UGC Production</strong><span>Glow Theory</span></div>
+                <a href="/pages/case-study?brand=eqqualberry" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-hero.svg" alt="Eqqualberry" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Product Discovery</strong><span>Eqqualberry — 11.3M+</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-brand.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Influencer Campaign</strong><span>Pure Jeju</span></div>
+                <a href="/pages/case-study?brand=vaseline" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-brand.svg" alt="Vaseline" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Beauty Hacks</strong><span>Vaseline — 2.84M+</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Campaign Strategy</strong><span>Seoul Glow Co.</span></div>
+                <a href="/pages/case-study?brand=axis-y" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="AXIS-Y" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Treatment Skincare</strong><span>AXIS-Y — 2.1M+</span></div>
                 </a>
               </div>
               <div class="dropdown-portfolio-footer-row">
-                <span>Recent projects</span>
+                <span>7 brand partnerships</span>
                 <a href="/pages/portfolio">See all →</a>
               </div>
             </div>
@@ -166,112 +365,135 @@
       </section>
     </div>
 
-    <!-- About Page Content -->
     <main class="page-shell">
-      <!-- Page Hero -->
-      <section class="page-hero">
+
+      <!-- Hero -->
+      <section class="ab-hero">
         <div class="container">
           <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <span class="eyebrow">About</span>
-              <h1>Who We Are</h1>
-              <p>
-                Faive Global is a creator-led marketing agency specialising in campaigns for Korean skincare and beauty brands. We help brands translate their products into content that resonates with global audiences without losing their identity.
+            <div class="col-lg-7">
+              <div class="ab-eyebrow">About Fainna</div>
+              <h1>More Than<br>Just Content.</h1>
+              <p class="ab-hero-body">
+                Hi, I'm Fainna — a beauty and lifestyle creator passionate about helping people feel confident while helping brands tell stories that resonate.
               </p>
+              <div class="ab-hero-actions">
+                <a href="/pages/contact" class="btn btn-gold btn-pill">Work With Me</a>
+                <a href="/pages/portfolio" class="ab-hero-link">
+                  View Portfolio
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
             </div>
-            <div class="col-lg-6">
-              <div class="page-visual-card">
-                <img
-                  src="/assets/placeholder-portfolio.svg"
-                  alt="Agency overview placeholder"
-                  class="page-visual-image"
-                />
+            <div class="col-lg-5">
+              <div class="ab-stat-panel">
+                <div class="ab-stat-item">
+                  <div class="ab-stat-num">96.9M+</div>
+                  <div class="ab-stat-label">Total Views Generated</div>
+                </div>
+                <div class="ab-stat-divider"></div>
+                <div class="ab-stat-item">
+                  <div class="ab-stat-num">7</div>
+                  <div class="ab-stat-label">Brand Partnerships</div>
+                </div>
+                <div class="ab-stat-divider"></div>
+                <div class="ab-stat-item">
+                  <div class="ab-stat-num">16</div>
+                  <div class="ab-stat-label">Published Videos</div>
+                </div>
+                <div class="ab-stat-divider"></div>
+                <p class="ab-stat-quote">"Content people trust and brands remember."</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About Details -->
-      <section class="section-shell">
+      <!-- Bio -->
+      <section class="ab-bio">
         <div class="container">
-          <div class="row g-5">
-            <div class="col-lg-6">
-              <h2 class="section-title">Who We Are</h2>
-              <p class="lead-copy">
-                We work with Korean skincare and beauty brands entering or scaling in English-speaking markets typically at the stage where distribution is in place but content performance isn't.
-              </p>
-              <div class="support-visual-card mt-4">
-                <img
-                  src="/assets/placeholder-hero.svg"
-                  alt="Agency story placeholder"
-                  class="support-visual-image"
-                />
-              </div>
+          <div class="ab-bio-inner">
+            <h2 class="ab-bio-heading">Building a Community That Cares</h2>
+            <p>
+              Over the years, I've built a community that values authenticity, education, and real results. My content combines storytelling, relatable experiences, and product education in a way that feels genuine rather than promotional.
+            </p>
+            <p>
+              Whether it's skincare, self-care, beauty routines, lifestyle content, or UGC campaigns, my goal is always the same:
+            </p>
+            <div class="ab-bio-highlight">
+              Create content people trust and brands remember.
             </div>
-            <div class="col-lg-6">
-              <div class="feature-stack">
-                <article class="feature-card">
-                  <h3>What Makes Us Different</h3>
-                  <p>
-                    We understand both sides: how K-beauty brands position their products, and how global audiences consume content. That allows us to simplify complex product messaging and highlight key ingredients in a way that feels natural not forced.
-                  </p>
-                </article>
-                <article class="feature-card">
-                  <h3>Our Philosophy</h3>
-                  <p>
-                    We combine strategy, creator selection, and content direction into one system. Every campaign is built to ensure your product is understood, trusted, and desired.
-                  </p>
-                </article>
-                <article class="feature-card">
-                  <h3>Our Philosophy</h3>
-                  <p>
-                    In skincare, clarity builds trust. And trust drives conversion. K-beauty is detail-driven from formulation to positioning. We build campaigns that respect that detail while making your product easy to understand in global markets.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="team-grid mt-5">
-            <article class="team-card">
-              <img
-                src="/assets/placeholder-avatar.svg"
-                alt="Strategy leadership placeholder"
-                class="team-card-avatar"
-              />
-              <h3>Founder & Strategy</h3>
-              <p>
-                Campaign positioning, client strategy, and creative oversight
-                for production delivery.
-              </p>
-            </article>
-            <article class="team-card">
-              <img
-                src="/assets/placeholder-avatar.svg"
-                alt="Creative direction placeholder"
-                class="team-card-avatar"
-              />
-              <h3>Creative & Production</h3>
-              <p>
-                Shot planning, visual direction, content production, and
-                campaign execution management.
-              </p>
-            </article>
-            <article class="team-card">
-              <img
-                src="/assets/placeholder-avatar.svg"
-                alt="Media operations placeholder"
-                class="team-card-avatar"
-              />
-              <h3>Creators & Talent</h3>
-              <p>
-                Creator collaboration, model sourcing, and influencer campaign
-                coordination.
-              </p>
-            </article>
+            <p>
+              I work with beauty and skincare brands across K-Beauty, clinical skincare, and wellness categories — bringing the same intentionality to every piece of content I create. Not just views, but genuine connection.
+            </p>
           </div>
         </div>
       </section>
+
+      <!-- What I Offer -->
+      <section class="ab-offer">
+        <div class="container">
+          <div class="ab-offer-heading">
+            <div class="ab-eyebrow">What I Offer</div>
+            <h2>How We Can Work Together</h2>
+            <p>From influencer campaigns to UGC production, I bring your brand's story to life through content that performs.</p>
+          </div>
+          <div class="row g-3">
+
+            <div class="col-lg-4 col-md-6">
+              <div class="ab-service-card">
+                <span class="ab-service-num">01</span>
+                <div class="ab-service-title">Influencer Campaigns</div>
+                <p class="ab-service-desc">Authentic content shared with my audience to increase awareness, engagement, and conversions.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="ab-service-card">
+                <span class="ab-service-num">02</span>
+                <div class="ab-service-title">UGC Content</div>
+                <p class="ab-service-desc">High-quality user-generated content created for brand-owned channels, advertisements, websites, and social media campaigns.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="ab-service-card">
+                <span class="ab-service-num">03</span>
+                <div class="ab-service-title">Product Demonstrations</div>
+                <p class="ab-service-desc">Clear and engaging product-focused videos that showcase benefits, usage, and real-life results.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="ab-service-card">
+                <span class="ab-service-num">04</span>
+                <div class="ab-service-title">Storytelling Content</div>
+                <p class="ab-service-desc">Creative concepts that naturally integrate products into relatable everyday experiences.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="ab-service-card">
+                <span class="ab-service-num">05</span>
+                <div class="ab-service-title">Short-Form Video Production</div>
+                <p class="ab-service-desc">TikTok, Instagram Reels, and other vertical video content designed to capture attention and drive performance.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="ab-cta">
+        <div class="container">
+          <div class="ab-cta-eyebrow">Let's Work Together</div>
+          <h2>Ready to create content<br>that converts?</h2>
+          <p>Open to brand collaborations across skincare, beauty, and wellness. Let's build something your audience will trust.</p>
+          <a href="/pages/contact" class="btn btn-gold btn-pill">Get in Touch</a>
+        </div>
+      </section>
+
     </main>
 
     <!-- Site Footer -->
