@@ -11,6 +11,323 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      /* ── Services Hero ── */
+      .sv-hero {
+        padding: 5.5rem 0 4.5rem;
+        background: #fff;
+        border-bottom: 1px solid #e8e4da;
+      }
+      .sv-eyebrow {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+      }
+      .sv-hero h1 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(2.25rem, 5vw, 3.5rem);
+        line-height: 1.08;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 1.25rem;
+      }
+      .sv-hero-body {
+        font-size: 1.0625rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.75;
+        max-width: 540px;
+        margin-bottom: 2rem;
+      }
+      .sv-hero-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .sv-hero-tag {
+        font-size: 0.78rem;
+        font-family: 'Gilroy-Bold', sans-serif;
+        color: var(--color-muted, #6b6b60);
+        background: var(--color-ivory, #f5f2eb);
+        border-radius: 100px;
+        padding: 0.35rem 0.875rem;
+      }
+
+      /* ── What I Offer ── */
+      .sv-offer {
+        padding: 5rem 0;
+        background: #fff;
+      }
+      .sv-section-label {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 0.875rem;
+      }
+      .sv-section-title {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.625rem, 2.5vw, 2.125rem);
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      .sv-section-sub {
+        color: var(--color-muted, #6b6b60);
+        font-size: 0.9375rem;
+        max-width: 480px;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+
+      .sv-service-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5px;
+        background: #e8e4da;
+        border: 1.5px solid #e8e4da;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .sv-service-cell {
+        background: #fff;
+        padding: 2rem 2.25rem;
+        transition: background 0.2s;
+      }
+      .sv-service-cell:hover { background: var(--color-ivory, #f5f2eb); }
+      .sv-service-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .sv-service-name {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1.05rem;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.625rem;
+        line-height: 1.3;
+      }
+      .sv-service-desc {
+        font-size: 0.875rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+      }
+      .sv-service-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .sv-service-bullets li {
+        font-size: 0.8125rem;
+        color: var(--color-muted, #6b6b60);
+        padding-left: 1rem;
+        position: relative;
+        line-height: 1.5;
+      }
+      .sv-service-bullets li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: #c8c4bc;
+        font-size: 0.75rem;
+      }
+      /* 5th card spans full width */
+      .sv-service-cell:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+
+      @media (max-width: 640px) {
+        .sv-service-row { grid-template-columns: 1fr; }
+        .sv-service-cell:last-child:nth-child(odd) { grid-column: auto; }
+      }
+
+      /* ── How It Works ── */
+      .sv-process {
+        padding: 5rem 0;
+        background: var(--color-ivory, #f5f2eb);
+      }
+      .sv-process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      .sv-step {
+        position: relative;
+      }
+      .sv-step-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 2rem;
+        color: #e0dbd0;
+        line-height: 1;
+        margin-bottom: 1rem;
+      }
+      .sv-step-title {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.9375rem;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.5rem;
+      }
+      .sv-step-desc {
+        font-size: 0.8375rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.7;
+      }
+      @media (max-width: 768px) {
+        .sv-process-steps { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 480px) {
+        .sv-process-steps { grid-template-columns: 1fr; }
+      }
+
+      /* ── Results ── */
+      .sv-results {
+        padding: 5rem 0;
+        background: #fff;
+      }
+      .sv-results-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .sv-results-left h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.625rem, 2.5vw, 2.125rem);
+        color: var(--color-ink, #1a1a18);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .sv-results-left p {
+        font-size: 0.9375rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+      }
+      .sv-check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+      }
+      .sv-check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.875rem;
+        font-size: 0.9375rem;
+        color: var(--color-ink, #1a1a18);
+        line-height: 1.5;
+      }
+      .sv-check-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--color-ivory, #f5f2eb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+        font-size: 0.7rem;
+        color: var(--color-gold, #c9a84c);
+        font-family: 'Gilroy-Bold', sans-serif;
+      }
+      .sv-stat-panel {
+        background: var(--color-ivory, #f5f2eb);
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .sv-stat-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .sv-stat-box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.25rem;
+      }
+      .sv-stat-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1.75rem;
+        color: var(--color-ink, #1a1a18);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .sv-stat-lbl {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-muted, #6b6b60);
+      }
+      .sv-stat-note {
+        font-size: 0.8125rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.65;
+        padding-top: 0.5rem;
+        border-top: 1px solid #e8e4da;
+      }
+      @media (max-width: 768px) {
+        .sv-results-layout { grid-template-columns: 1fr; gap: 3rem; }
+      }
+
+      /* ── FAQ ── */
+      .sv-faq {
+        padding: 5rem 0;
+        background: var(--color-ivory, #f5f2eb);
+      }
+      .sv-faq h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.625rem, 2.5vw, 2.125rem);
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 2.5rem;
+      }
+
+      /* ── CTA ── */
+      .sv-cta {
+        background: var(--color-ivory, #f5f2eb);
+        padding: 5rem 0 4.5rem;
+        text-align: center;
+        border-top: 1px solid #e8e4da;
+        position: relative;
+      }
+      .sv-cta::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: var(--color-gold, #c9a84c);
+        margin: 0 auto 2rem;
+      }
+      .sv-cta h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+      }
+      .sv-cta p {
+        color: var(--color-muted, #6b6b60);
+        max-width: 380px;
+        margin: 0 auto 1.75rem;
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+    </style>
   </head>
   <body data-page="services">
 
@@ -170,226 +487,195 @@
     <main class="page-shell">
 
       <!-- Hero -->
-      <section class="svc-hero-section">
+      <section class="sv-hero">
         <div class="container">
-          <h1 class="svc-hero-title">K-beauty campaigns,<br>built to perform.</h1>
-          <a href="/pages/contact" class="svc-hero-cta">Contact</a>
-        </div>
-      </section>
-
-      <!-- Hero Visual -->
-      <section class="svc-visual-section">
-        <div class="container">
-          <div class="svc-visual-panel">
-            <div class="svc-visual-center">
-              <img src="/assets/placeholder-hero.svg" alt="Campaign visual" class="svc-visual-img" />
-            </div>
-            <!-- Floating UI cards -->
-            <div class="svc-float-card svc-float-topleft">
-              <div class="sfc-float-dots">
-                <span></span><span></span>
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+              <div class="sv-eyebrow">Services</div>
+              <h1>Content that<br>connects &amp; converts.</h1>
+              <p class="sv-hero-body">
+                I create beauty and lifestyle content that doesn't just look good — it builds trust, drives discovery, and turns viewers into customers. Every piece of content is built around your brand's goals.
+              </p>
+              <div class="sv-hero-tags">
+                <span class="sv-hero-tag">TikTok &amp; Instagram Reels</span>
+                <span class="sv-hero-tag">UGC Production</span>
+                <span class="sv-hero-tag">Influencer Campaigns</span>
+                <span class="sv-hero-tag">Beauty &amp; Skincare</span>
+                <span class="sv-hero-tag">Storytelling Content</span>
               </div>
-              <strong>Creator-Led Growth</strong>
-              <p>Our services compound through a shared campaign strategy and a transparent performance layer.</p>
             </div>
-            <div class="svc-float-card svc-float-topright">
-              <div class="sfc-float-dot-active"></div>
-              <p class="sfc-float-label">Signal capture</p>
-              <p class="sfc-float-label">Messaging &amp; framing</p>
-              <p class="sfc-float-label">Reception with audience</p>
-            </div>
-            <div class="svc-float-pill svc-float-bottom">
-              <span class="sfc-pill-dot"></span>
-              <span>UGC · Influencer · Strategy · Execution</span>
+            <div class="col-lg-5 d-flex flex-column align-items-start gap-3">
+              <a href="/pages/contact" class="btn btn-gold btn-pill">Start a Collaboration</a>
+              <a href="/pages/portfolio" style="font-size:0.875rem;color:var(--color-muted);text-decoration:none;display:flex;align-items:center;gap:0.35rem;" >
+                View Portfolio
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Service Cards Grid -->
-      <section class="section-shell svc-cards-section">
+      <!-- What I Offer -->
+      <section class="sv-offer">
         <div class="container">
-          <div class="svc-feature-grid">
+          <div class="sv-section-label">What I Offer</div>
+          <h2 class="sv-section-title">Five ways I can show up for your brand.</h2>
+          <p class="sv-section-sub">From a single campaign to an ongoing content partnership — here's how we can work together to create something your audience will actually care about.</p>
 
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82V15.18a1 1 0 01-1.447.889L15 14"/><rect x="2" y="6" width="13" height="12" rx="2"/></svg>
-              </div>
-              <h3 class="sfc-title">UGC Content Production</h3>
-              <p class="sfc-desc">We plan and execute full campaigns combining influencer marketing and UGC into one cohesive system.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">High-volume production</span>
-                <span class="sfc-tag">Iterative testing</span>
-                <span class="sfc-tag">Low-fi formats</span>
-              </div>
-            </article>
+          <div class="sv-service-row">
 
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <h3 class="sfc-title">Influencer Campaigns</h3>
-              <p class="sfc-desc">We identify and activate creators aligned with your product, audience, and global expansion goals.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Sourcing &amp; vetting</span>
-                <span class="sfc-tag">Nano to Macro</span>
-                <span class="sfc-tag">Whitelisting</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
-              </div>
-              <h3 class="sfc-title">Campaign Strategy</h3>
-              <p class="sfc-desc">We define how your product should be positioned and how it should be presented across all campaign content.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Product positioning</span>
-                <span class="sfc-tag">Messaging &amp; angles</span>
-                <span class="sfc-tag">Brand voice</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              </div>
-              <h3 class="sfc-title">Campaign Execution</h3>
-              <p class="sfc-desc">We manage timelines, creator coordination, and delivery across the entire campaign from start to finish.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Timeline management</span>
-                <span class="sfc-tag">Creator coordination</span>
-                <span class="sfc-tag">Analytics</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-              </div>
-              <h3 class="sfc-title">Creator Sourcing</h3>
-              <p class="sfc-desc">We identify creators who align with your product, audience, and expansion goals who can translate your product, not just promote it.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Global markets</span>
-                <span class="sfc-tag">Audience alignment</span>
-                <span class="sfc-tag">K-Beauty focus</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-              </div>
-              <h3 class="sfc-title">Brand Campaign Strategy</h3>
-              <p class="sfc-desc">We design campaigns that are strategically built to perform from platform selection through to execution and reporting.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Channel strategy</span>
-                <span class="sfc-tag">Creative direction</span>
-                <span class="sfc-tag">Performance tracking</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-              </div>
-              <h3 class="sfc-title">Creative Direction</h3>
-              <p class="sfc-desc">We develop visual and messaging frameworks that position your K-beauty brand consistently across all content.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">Visual identity</span>
-                <span class="sfc-tag">Shot direction</span>
-                <span class="sfc-tag">Brand standards</span>
-              </div>
-            </article>
-
-            <article class="svc-feature-card">
-              <div class="sfc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <h3 class="sfc-title">Model &amp; Talent Sourcing</h3>
-              <p class="sfc-desc">Diverse, relevant on-screen talent tailored to your brand identity, campaign brief, and target audience market.</p>
-              <div class="sfc-tags">
-                <span class="sfc-tag">On-screen talent</span>
-                <span class="sfc-tag">Diverse casting</span>
-                <span class="sfc-tag">Brand alignment</span>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Case Study Preview Cards -->
-      <section class="section-shell cs-stat-cards-section">
-        <div class="container">
-          <div class="cs-stat-grid">
-            <article class="cs-stat-card">
-              <div class="cs-stat-top">
-                <span class="cs-stat-brand">Lumière Seoul</span>
-                <img src="/assets/placeholder-portfolio.svg" alt="Lumière Seoul" class="cs-stat-thumb" />
-              </div>
-              <div class="cs-stat-num">33%</div>
-              <div class="cs-stat-label cs-label-green">MoM Profit Growth</div>
-            </article>
-            <article class="cs-stat-card">
-              <div class="cs-stat-top">
-                <span class="cs-stat-brand">Glow Theory</span>
-                <img src="/assets/placeholder-hero.svg" alt="Glow Theory" class="cs-stat-thumb" />
-              </div>
-              <div class="cs-stat-num">70%</div>
-              <div class="cs-stat-label cs-label-coral">Reduction in CPA</div>
-            </article>
-            <article class="cs-stat-card">
-              <div class="cs-stat-top">
-                <span class="cs-stat-brand">Pure Jeju</span>
-                <img src="/assets/placeholder-brand.svg" alt="Pure Jeju" class="cs-stat-thumb" />
-              </div>
-              <div class="cs-stat-num">4.2×</div>
-              <div class="cs-stat-label cs-label-purple">Return on Ad Spend</div>
-            </article>
-            <article class="cs-stat-card">
-              <div class="cs-stat-top">
-                <span class="cs-stat-brand">Seoul Glow Co.</span>
-                <img src="/assets/placeholder-portfolio.svg" alt="Seoul Glow Co." class="cs-stat-thumb" />
-              </div>
-              <div class="cs-stat-num">2M+</div>
-              <div class="cs-stat-label cs-label-grey">Content Impressions</div>
-            </article>
-          </div>
-          <div class="svc-cs-btn-row">
-            <a href="/pages/portfolio" class="svc-all-cs-btn">All Case Studies</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured Case Study -->
-      <section class="section-shell featured-cs-section">
-        <div class="container">
-          <div class="fcs-layout">
-            <div class="fcs-image-col">
-              <div class="fcs-image-wrap">
-                <img src="/assets/placeholder-hero.svg" alt="Lumière Seoul Campaign" class="fcs-img" />
-                <button class="fcs-play-btn" aria-label="Play campaign video">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
+            <div class="sv-service-cell">
+              <span class="sv-service-num">01</span>
+              <div class="sv-service-name">Influencer Campaigns</div>
+              <p class="sv-service-desc">Authentic content created and shared directly with my engaged beauty audience to increase brand awareness, drive product discovery, and generate real conversions.</p>
+              <ul class="sv-service-bullets">
+                <li>Dedicated sponsored posts on TikTok and Instagram</li>
+                <li>Honest product reviews with educational context</li>
+                <li>Audience-aligned messaging and natural integration</li>
+                <li>Campaign reporting with views, engagement, and reach</li>
+              </ul>
             </div>
-            <div class="fcs-content-col">
-              <div class="fcs-brand-row">
-                <img src="/assets/placeholder-brand.svg" alt="Lumière Seoul" class="fcs-brand-logo" />
-                <span class="fcs-type-pill">Full Funnel Growth Marketing</span>
-              </div>
-              <h3 class="fcs-headline">How a K-beauty brand repositioned through creator-led storytelling and achieved measurable growth in new markets.</h3>
-              <a href="/pages/case-study" class="fcs-cta-pill">Full Case Study</a>
-              <div class="fcs-metrics">
-                <div class="fcs-metric">
-                  <span class="fcs-metric-num">33%</span>
-                  <span class="fcs-metric-label">Growth in MoM Profit Margin</span>
+
+            <div class="sv-service-cell">
+              <span class="sv-service-num">02</span>
+              <div class="sv-service-name">UGC Content</div>
+              <p class="sv-service-desc">High-quality user-generated content delivered for brand-owned use — ads, websites, email, organic social, and beyond. You own it. You use it anywhere.</p>
+              <ul class="sv-service-bullets">
+                <li>Raw footage + edited final deliverables</li>
+                <li>Multiple variations for A/B testing</li>
+                <li>On-brand scripting and visual direction</li>
+                <li>Fast turnaround with revision rounds</li>
+              </ul>
+            </div>
+
+            <div class="sv-service-cell">
+              <span class="sv-service-num">03</span>
+              <div class="sv-service-name">Product Demonstrations</div>
+              <p class="sv-service-desc">Clear, engaging product-focused videos that walk viewers through how your product works, why it works, and what real results look like — in a way that builds trust and confidence.</p>
+              <ul class="sv-service-bullets">
+                <li>Before-and-after application walkthroughs</li>
+                <li>Ingredient and benefit breakdowns</li>
+                <li>Routine integration and how-to content</li>
+                <li>Skin type and concern-specific messaging</li>
+              </ul>
+            </div>
+
+            <div class="sv-service-cell">
+              <span class="sv-service-num">04</span>
+              <div class="sv-service-name">Storytelling Content</div>
+              <p class="sv-service-desc">Creative concepts that weave your product naturally into relatable, real-life experiences — the kind of content people watch all the way through and share with their friends.</p>
+              <ul class="sv-service-bullets">
+                <li>Day-in-my-life and routine-based formats</li>
+                <li>Narrative-led content with emotional resonance</li>
+                <li>Trend-aware hooks with authentic framing</li>
+                <li>Long-form and short-form variations</li>
+              </ul>
+            </div>
+
+            <div class="sv-service-cell">
+              <span class="sv-service-num">05</span>
+              <div class="sv-service-name">Short-Form Video Production</div>
+              <p class="sv-service-desc">Vertical video content built specifically for TikTok, Instagram Reels, and YouTube Shorts — designed to stop the scroll, capture attention in the first 3 seconds, and drive action.</p>
+              <ul class="sv-service-bullets">
+                <li>Native format optimised for each platform</li>
+                <li>Trend-informed creative direction</li>
+                <li>Hook-first scripting and editing</li>
+                <li>Paid ad-ready versions available</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="sv-process">
+        <div class="container">
+          <div class="sv-section-label">How It Works</div>
+          <h2 class="sv-section-title">From brief to published in four steps.</h2>
+          <p class="sv-section-sub">A straightforward process designed to keep things smooth on both ends — from the first conversation to final delivery.</p>
+          <div class="sv-process-steps">
+            <div class="sv-step">
+              <div class="sv-step-num">01</div>
+              <div class="sv-step-title">Discovery Call</div>
+              <p class="sv-step-desc">We connect to discuss your brand, goals, target audience, and the type of content that fits your campaign. No fluff, just clarity.</p>
+            </div>
+            <div class="sv-step">
+              <div class="sv-step-num">02</div>
+              <div class="sv-step-title">Brief &amp; Proposal</div>
+              <p class="sv-step-desc">I put together a tailored content proposal — format, timeline, deliverables, and pricing — based on what your brand actually needs.</p>
+            </div>
+            <div class="sv-step">
+              <div class="sv-step-num">03</div>
+              <div class="sv-step-title">Production</div>
+              <p class="sv-step-desc">Content is scripted, filmed, and edited. You get a preview before anything goes live. Revisions are included in every package.</p>
+            </div>
+            <div class="sv-step">
+              <div class="sv-step-num">04</div>
+              <div class="sv-step-title">Delivery &amp; Results</div>
+              <p class="sv-step-desc">Content is delivered on the agreed date along with performance data — views, reach, engagement, and any other metrics we agreed to track.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="sv-results">
+        <div class="container">
+          <div class="sv-results-layout">
+            <div class="sv-results-left">
+              <div class="sv-section-label">Results</div>
+              <h2>Why Brands Work With Me</h2>
+              <p>I don't just post content and move on. Every collaboration is built around your brand's specific goals — whether that's awareness, product education, or driving sales. Here's what brands consistently tell me makes the difference:</p>
+              <ul class="sv-check-list">
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>Engaged beauty-focused audience that trusts my recommendations</span>
+                </li>
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>Authentic product recommendations that don't feel like ads</span>
+                </li>
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>High-quality video production with professional editing</span>
+                </li>
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>Strong storytelling approach that keeps viewers watching</span>
+                </li>
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>Experience working with global beauty and skincare brands</span>
+                </li>
+                <li class="sv-check-item">
+                  <span class="sv-check-icon">✓</span>
+                  <span>Content optimised for both organic reach and paid performance</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="sv-stat-panel">
+                <div class="sv-stat-row">
+                  <div class="sv-stat-box">
+                    <div class="sv-stat-num">96.9M+</div>
+                    <div class="sv-stat-lbl">Total Views</div>
+                  </div>
+                  <div class="sv-stat-box">
+                    <div class="sv-stat-num">78.5M+</div>
+                    <div class="sv-stat-lbl">Views — Medicube</div>
+                  </div>
+                  <div class="sv-stat-box">
+                    <div class="sv-stat-num">7</div>
+                    <div class="sv-stat-lbl">Brand Partners</div>
+                  </div>
+                  <div class="sv-stat-box">
+                    <div class="sv-stat-num">16</div>
+                    <div class="sv-stat-lbl">Published Videos</div>
+                  </div>
                 </div>
-                <div class="fcs-metric">
-                  <span class="fcs-metric-num">70%</span>
-                  <span class="fcs-metric-label">Reduction in Overall CPA</span>
-                </div>
+                <p class="sv-stat-note">From skincare education to product launches, Fainna's content has helped brands across K-Beauty, clinical skincare, and wellness categories reach new audiences and drive meaningful engagement.</p>
+                <a href="/pages/portfolio" class="btn btn-gold btn-pill" style="align-self:flex-start;">See the Work</a>
               </div>
             </div>
           </div>
@@ -397,68 +683,69 @@
       </section>
 
       <!-- FAQ -->
-      <section class="section-shell faq-section">
+      <section class="sv-faq">
         <div class="container">
-          <h2 class="faq-heading">K-beauty campaigns, answered.</h2>
+          <div class="sv-section-label">FAQ</div>
+          <h2>Common questions, answered.</h2>
           <div class="faq-grid">
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>Do you only work with Korean beauty brands?</span>
+                <span>What types of brands do you work with?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>Yes we partner exclusively with Korean skincare and beauty brands. This focus means we bring deep category knowledge, creator relationships, and campaign experience tailored to K-beauty products and audiences.</p>
+                <p>I primarily work with beauty, skincare, and lifestyle brands — especially in the K-Beauty, clinical skincare, and wellness spaces. If your product fits into a beauty or self-care routine, we're likely a good match.</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>What platforms do you run campaigns on?</span>
+                <span>What platforms do you create content for?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>We specialise in TikTok, Instagram, and YouTube the primary platforms where K-beauty content performs globally. We tailor content format, creator style, and posting strategy to each platform's native behaviour.</p>
+                <p>Primarily TikTok and Instagram Reels — the platforms where short-form beauty content performs best. I also create content optimised for YouTube Shorts and brand-owned channels (website, ads, email).</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>How do I start working with Faive Global?</span>
+                <span>What's the difference between influencer content and UGC?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>Reach out via our Contact page with details about your brand and campaign goals. We'll schedule a discovery call to understand your objectives and propose a campaign approach that fits your timeline and budget.</p>
+                <p>Influencer content is posted to my own audience — it comes with my reach, trust, and community. UGC is content I produce for your brand to use however you like: paid ads, organic posts, your website. You own it fully.</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>How do you select the creators you work with?</span>
+                <span>How long does a typical collaboration take?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>We match creators based on audience demographics, engagement quality, content aesthetic, and brand affinity not just follower count. Every creator brief is reviewed against your brand standards before outreach begins.</p>
+                <p>Most projects run 1–3 weeks from brief to delivery, depending on content volume and revision rounds. Rush timelines are sometimes available — just mention it when you reach out.</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>How long does a campaign typically take?</span>
+                <span>Can I use the content for paid ads?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>Most campaigns run 4-8 weeks from briefing to final delivery. Timelines depend on creator count, content volume, and campaign complexity. We provide a clear production schedule at the start of every project.</p>
+                <p>Yes. UGC packages include licensing for paid ad use. For influencer content, whitelisting and boosting rights can be added — just let me know upfront so we can include it in the proposal.</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button class="faq-trigger">
-                <span>Can you manage campaigns across multiple markets?</span>
+                <span>How do I get started?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-body">
-                <p>Yes. We have creators and campaign experience across North America, Europe, Southeast Asia, and the Middle East. We adapt messaging, creator selection, and content style to each market's expectations and culture.</p>
+                <p>Head to the Contact page and send a message with your brand name, what you're looking for, and your rough timeline. I'll get back to you within 48 hours to schedule a quick intro call.</p>
               </div>
             </div>
 
@@ -467,20 +754,12 @@
       </section>
 
       <!-- CTA -->
-      <section class="svc-cta-section">
+      <section class="sv-cta">
         <div class="container">
-          <div class="svc-cta-inner">
-            <h2 class="svc-cta-heading">Ready to scale your brand beyond your local market?</h2>
-            <div class="svc-cta-right">
-              <a href="/pages/contact" class="svc-cta-btn">Get Started</a>
-              <div class="svc-cta-partners">
-                <span>Active on</span>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-youtube"></i>
-              </div>
-            </div>
-          </div>
+          <div class="sv-eyebrow">Let's Work Together</div>
+          <h2>Ready to create content<br>your audience will love?</h2>
+          <p>Open to brand collaborations across skincare, beauty, and wellness. Let's build something worth watching.</p>
+          <a href="/pages/contact" class="btn btn-gold btn-pill">Get in Touch</a>
         </div>
       </section>
 
