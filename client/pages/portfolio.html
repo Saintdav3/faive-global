@@ -163,22 +163,40 @@
 
       /* CTA strip */
       .pf2-cta {
-        background: var(--color-ink, #1a1a18);
-        color: #fff;
-        padding: 4rem 0;
+        background: var(--color-ivory, #f5f2eb);
+        padding: 6rem 0 5.5rem;
         text-align: center;
+        position: relative;
+      }
+      .pf2-cta::before {
+        content: '';
+        display: block;
+        width: 48px;
+        height: 2px;
+        background: var(--color-gold, #c9a84c);
+        margin: 0 auto 2.5rem;
+      }
+      .pf2-cta-eyebrow {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
       }
       .pf2-cta h2 {
         font-family: 'Gilroy-Bold', sans-serif;
-        font-size: clamp(1.5rem, 3vw, 2.25rem);
-        margin-bottom: 0.75rem;
-        color: #fff;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 1rem;
       }
       .pf2-cta p {
-        color: rgba(255,255,255,0.65);
-        max-width: 480px;
-        margin: 0 auto 2rem;
+        color: var(--color-muted, #6b6b60);
+        max-width: 420px;
+        margin: 0 auto 2.5rem;
         font-size: 0.9375rem;
+        line-height: 1.7;
       }
 
       @media (max-width: 576px) {
@@ -460,9 +478,10 @@
       <!-- CTA -->
       <section class="pf2-cta">
         <div class="container">
-          <h2>Want to Work Together?</h2>
-          <p>I'm open to brand partnerships across skincare, beauty, and wellness. Let's create content that converts.</p>
-          <a href="/pages/contact" class="btn btn-gold btn-pill">Get in Touch</a>
+          <div class="pf2-cta-eyebrow">Let's Create Together</div>
+          <h2>Your brand deserves<br>content that converts.</h2>
+          <p>Open to skincare, beauty, and wellness partnerships. I create content that educates, builds trust, and drives real results.</p>
+          <a href="/pages/contact" class="btn btn-gold btn-pill">Work With Me</a>
         </div>
       </section>
 
