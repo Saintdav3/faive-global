@@ -1,4 +1,4 @@
-import { initPortfolioFilters, loadCaseStudy, loadPortfolioCards, loadBrandPage, loadBrandOverview } from './portfolio.js';
+import { initPortfolioFilters, loadBrandPage, loadBrandOverview } from './portfolio.js';
 import { initMegaNav } from './mega-nav.js';
 
 // In development: points to the local Express server.
@@ -83,12 +83,12 @@ const initHeaderMotion = () => {
 const initActiveNav = () => {
   const page = document.body.dataset.page;
   const pageMap = {
-    home: '/index.html',
-    about: '/pages/about.html',
-    services: '/pages/services.html',
-    portfolio: '/pages/portfolio.html',
-    'case-study': '/pages/portfolio.html',
-    contact: '/pages/contact.html',
+    home: '/index',
+    about: '/pages/about',
+    services: '/pages/services',
+    portfolio: '/pages/portfolio',
+    'case-study': '/pages/portfolio',
+    contact: '/pages/contact',
   };
 
   const activeHref = pageMap[page];
@@ -274,7 +274,6 @@ const initPage = async () => {
     initHeroSlider();
     initFaq();
     initTestimonialSlider();
-    loadPortfolioCards('featured-portfolio', { featured: true });
   }
 
   if (page === 'portfolio') {
