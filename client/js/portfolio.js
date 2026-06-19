@@ -456,10 +456,10 @@ const brandStudies = [
     strategy: 'Created educational, problem-solution driven content that connected visible skincare concerns with product benefits while simplifying ingredient-heavy messaging.',
     results: ['78.5M+ Total Views', '49.6M Highest Performing Video', '4 Published TikTok Videos', 'Multiple Viral Product Education Assets'],
     videos: [
-      { title: 'Peptide Serum', views: '49.6M Views', url: 'https://vt.tiktok.com/ZS91wYFUc/' },
-      { title: 'Kojic Acid + Turmeric', views: '19.3M Views', url: 'https://vt.tiktok.com/ZS91TusqN/' },
-      { title: 'Kojic Peel Acid Duo', views: '8.6M Views', url: 'https://vt.tiktok.com/ZS91ToUFm/' },
-      { title: 'Global Mask', views: '1M Views', url: 'https://vt.tiktok.com/ZS91wu699/' },
+      { title: 'Peptide Serum', views: '49.6M Views', url: 'https://vt.tiktok.com/ZS91wYFUc/', id: '7592954458749930772' },
+      { title: 'Kojic Acid + Turmeric', views: '19.3M Views', url: 'https://vt.tiktok.com/ZS91TusqN/', id: '7588622644660997396' },
+      { title: 'Kojic Peel Acid Duo', views: '8.6M Views', url: 'https://vt.tiktok.com/ZS91ToUFm/', id: '7611120311723085076' },
+      { title: 'Global Mask', views: '1M Views', url: 'https://vt.tiktok.com/ZS91wu699/', id: '7598867020800625940' },
     ],
   },
   {
@@ -471,10 +471,10 @@ const brandStudies = [
     strategy: 'Used benefit-first storytelling and highly visual skincare demonstrations to simplify product messaging and improve audience retention.',
     results: ['11.3M+ Total Views', '8.1M Highest Performing Video', '4 Published TikTok Videos'],
     videos: [
-      { title: 'Purple Rice Cleansing Oil', views: '8.1M Views', url: 'https://vt.tiktok.com/ZS9J1bpEt/' },
-      { title: 'Botox Serum', views: '1.5M Views', url: 'https://vt.tiktok.com/ZS91w1K1k/' },
-      { title: 'NAD Cream', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91TKJJ2/' },
-      { title: 'Bikini Lines', views: '621K Views', url: 'https://vt.tiktok.com/ZS91wkPEY/' },
+      { title: 'Purple Rice Cleansing Oil', views: '8.1M Views', url: 'https://vt.tiktok.com/ZS9J1bpEt/', id: '7501755125615103238' },
+      { title: 'Botox Serum', views: '1.5M Views', url: 'https://vt.tiktok.com/ZS91w1K1k/', id: '7618642159683570964' },
+      { title: 'NAD Cream', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91TKJJ2/', id: '7616029305675451660' },
+      { title: 'Bikini Lines', views: '621K Views', url: 'https://vt.tiktok.com/ZS91wkPEY/', id: '7611238048059247893' },
     ],
   },
   {
@@ -486,8 +486,8 @@ const brandStudies = [
     strategy: 'Focused on concern-specific skincare education and simplified product explanations that connected ingredients to everyday skincare goals.',
     results: ['2.1M+ Total Views', '1.1M Highest Performing Video', '2 Published TikTok Videos'],
     videos: [
-      { title: 'Collagen Serum', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91Ts3o4/' },
-      { title: 'Triple PDRN', views: '1M Views', url: 'https://vt.tiktok.com/ZS91TvWKv/' },
+      { title: 'Collagen Serum', views: '1.1M Views', url: 'https://vt.tiktok.com/ZS91Ts3o4/', id: '7620853007265041681' },
+      { title: 'Triple PDRN', views: '1M Views', url: 'https://vt.tiktok.com/ZS91TvWKv/', id: '7617885542306385173' },
     ],
   },
   {
@@ -497,7 +497,7 @@ const brandStudies = [
     description: 'Premium skincare education designed to communicate product efficacy through relatable consumer storytelling.',
     results: ['1.1M+ Views', '1 Published Video'],
     videos: [
-      { title: 'Reju 500 Cream', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91TXNyQ/' },
+      { title: 'Reju 500 Cream', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91TXNyQ/', id: '7593793688136977684' },
     ],
   },
   {
@@ -507,7 +507,7 @@ const brandStudies = [
     description: 'Trust-led skincare content designed to increase product consideration and brand familiarity.',
     results: ['555K+ Views', '1 Published Video'],
     videos: [
-      { title: 'Skincare Steps', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wyP9A/' },
+      { title: 'Skincare Steps', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wyP9A/', id: '7505848122149473541' },
     ],
   },
   {
@@ -517,9 +517,9 @@ const brandStudies = [
     description: 'Creative beauty hacks that repositioned a familiar household product through practical skincare applications.',
     results: ['2.84M+ Views', '3 Published Videos'],
     videos: [
-      { title: 'Video 1', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wMmBr/' },
-      { title: 'Video 2', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wSYaV/' },
-      { title: 'Video 3', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91w9G21/' },
+      { title: 'Video 1', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wMmBr/', id: '7511320222947757318' },
+      { title: 'Video 2', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wSYaV/', id: '7523984183966879032' },
+      { title: 'Video 3', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91w9G21/', id: '7621612599695756565' },
     ],
   },
   {
@@ -529,7 +529,7 @@ const brandStudies = [
     description: 'Educational skincare content focused on pigmentation concerns and solution-based skincare routines.',
     results: ['575K+ Views', '1 Published Video'],
     videos: [
-      { title: 'Watch Video', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wQaWQ/' },
+      { title: 'Watch Video', views: 'Watch on TikTok', url: 'https://vt.tiktok.com/ZS91wQaWQ/', id: '7537285206953299256' },
     ],
   },
 ];
@@ -591,13 +591,21 @@ export const loadBrandPage = (mountId) => {
   const videoCards = brand.videos
     .map(
       (v) => `
-      <a href="${v.url}" class="cs-video-card" target="_blank" rel="noopener noreferrer">
-        <div class="cs-video-icon">${ttIcon}</div>
-        <div class="cs-video-info">
-          <div class="cs-video-title">${v.title}</div>
-          <div class="cs-video-views">${v.views}</div>
+      <div class="cs-tt-embed-wrap">
+        <iframe
+          src="https://www.tiktok.com/embed/v2/${v.id}"
+          class="cs-tt-iframe"
+          allowfullscreen
+          allow="encrypted-media; clipboard-write"
+          scrolling="no"
+          loading="lazy"
+          title="${v.title}">
+        </iframe>
+        <div class="cs-tt-embed-label">
+          <span class="cs-tt-embed-title">${v.title}</span>
+          <span class="cs-tt-embed-views">${v.views}</span>
         </div>
-      </a>`
+      </div>`
     )
     .join('');
 
@@ -617,7 +625,7 @@ export const loadBrandPage = (mountId) => {
         </div>
         <div class="cs-videos-block">
           <h4>Featured Videos</h4>
-          <div class="cs-video-grid">${videoCards}</div>
+          <div class="cs-tt-scroll">${videoCards}</div>
         </div>
       </div>
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e8e4da;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
