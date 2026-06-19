@@ -593,7 +593,8 @@ export const loadBrandPage = (mountId) => {
       (v) => `
       <div class="cs-tt-embed-wrap" data-video-id="${v.id}" data-url="${v.url}">
         <a href="${v.url}" target="_blank" rel="noopener noreferrer" class="cs-tt-poster">
-          <div class="cs-tt-poster-bg"></div>
+          <img src="/assets/thumbnails/${v.id}.jpg" alt="${v.title}" class="cs-tt-thumb" />
+          <div class="cs-tt-poster-overlay"></div>
           <div class="cs-tt-play-btn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </div>
