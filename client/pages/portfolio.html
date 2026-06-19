@@ -4,13 +4,190 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Case Studies | Faive Global</title>
+    <title>Portfolio | Fainna</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      /* Portfolio Hero */
+      .pf2-hero {
+        padding: 5rem 0 3.5rem;
+        border-bottom: 1px solid #e8e4da;
+      }
+      .pf2-hero-inner {
+        max-width: 760px;
+      }
+      .pf2-eyebrow {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-gold, #c9a84c);
+        margin-bottom: 1rem;
+      }
+      .pf2-hero h1 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.12;
+        color: var(--color-ink, #1a1a18);
+        margin-bottom: 1.25rem;
+      }
+      .pf2-hero-body {
+        font-size: 1.0625rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.75;
+        max-width: 640px;
+      }
+      .pf2-hero-body strong {
+        color: var(--color-ink, #1a1a18);
+        font-family: 'Gilroy-Bold', sans-serif;
+      }
+
+      /* Stats strip */
+      .pf2-stats {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid #e8e4da;
+        background: #f9f7f3;
+      }
+      .pf2-stats-grid {
+        display: flex;
+        gap: 0;
+        flex-wrap: wrap;
+      }
+      .pf2-stat {
+        flex: 1;
+        min-width: 140px;
+        padding: 1rem 1.5rem;
+        border-right: 1px solid #e8e4da;
+      }
+      .pf2-stat:last-child { border-right: none; }
+      .pf2-stat-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        color: var(--color-ink, #1a1a18);
+        line-height: 1;
+        margin-bottom: 0.35rem;
+      }
+      .pf2-stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--color-muted, #6b6b60);
+      }
+
+      /* Brand grid */
+      .pf2-grid-section {
+        padding: 4rem 0 6rem;
+      }
+      .pf2-section-label {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-muted, #6b6b60);
+        margin-bottom: 2rem;
+      }
+
+      /* Brand cards */
+      .pf2-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+        padding: 1.5rem;
+        border: 1.5px solid #e8e4da;
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--color-ink, #1a1a18);
+        transition: border-color 0.2s, box-shadow 0.2s;
+        height: 100%;
+      }
+      .pf2-card:hover {
+        border-color: var(--color-ink, #1a1a18);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+        color: var(--color-ink, #1a1a18);
+      }
+      .pf2-card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .pf2-card-name {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 1.15rem;
+        line-height: 1.2;
+      }
+      .pf2-card-badge {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.72rem;
+        background: var(--color-gold, #c9a84c);
+        color: var(--color-ink, #1a1a18);
+        padding: 0.25rem 0.65rem;
+        border-radius: 2rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .pf2-card-desc {
+        font-size: 0.875rem;
+        color: var(--color-muted, #6b6b60);
+        line-height: 1.65;
+        margin: 0;
+        flex: 1;
+      }
+      .pf2-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: var(--color-muted, #6b6b60);
+        padding-top: 0.875rem;
+        border-top: 1px solid #e8e4da;
+        margin-top: auto;
+      }
+      .pf2-card-cta {
+        font-family: 'Gilroy-Bold', sans-serif;
+        color: var(--color-ink, #1a1a18);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .pf2-card-cta svg {
+        transition: transform 0.2s;
+      }
+      .pf2-card:hover .pf2-card-cta svg {
+        transform: translateX(3px);
+      }
+
+      /* CTA strip */
+      .pf2-cta {
+        background: var(--color-ink, #1a1a18);
+        color: #fff;
+        padding: 4rem 0;
+        text-align: center;
+      }
+      .pf2-cta h2 {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        margin-bottom: 0.75rem;
+        color: #fff;
+      }
+      .pf2-cta p {
+        color: rgba(255,255,255,0.65);
+        max-width: 480px;
+        margin: 0 auto 2rem;
+        font-size: 0.9375rem;
+      }
+
+      @media (max-width: 576px) {
+        .pf2-stats-grid { gap: 0; }
+        .pf2-stat { border-right: none; border-bottom: 1px solid #e8e4da; min-width: 50%; }
+        .pf2-stat:nth-child(odd) { border-right: 1px solid #e8e4da; }
+        .pf2-stat:last-child { border-bottom: none; }
+      }
+    </style>
   </head>
   <body data-page="portfolio">
 
@@ -129,35 +306,35 @@
             <div class="dropdown-portfolio-left">
               <a href="/pages/portfolio" class="dropdown-portfolio-category">
                 <strong>All Case Studies</strong>
-                <span>Read through our campaign work</span>
+                <span>Browse Fainna's brand work</span>
               </a>
               <hr class="dropdown-portfolio-divider" />
-              <a href="/pages/portfolio" class="dropdown-portfolio-category">
-                <strong>UGC Highlights</strong>
-                <span>A peek into our content library</span>
+              <a href="/pages/case-study" class="dropdown-portfolio-category">
+                <strong>Featured Results</strong>
+                <span>96.9M+ views generated</span>
               </a>
             </div>
             <div class="dropdown-portfolio-right">
               <div class="dropdown-portfolio-grid">
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Creator Campaign</strong><span>Lumière Seoul</span></div>
+                <a href="/pages/case-study?brand=medicube" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="Medicube" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Skincare Education</strong><span>Medicube — 78.5M+ Views</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-hero.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>UGC Production</strong><span>Glow Theory</span></div>
+                <a href="/pages/case-study?brand=eqqualberry" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-hero.svg" alt="Eqqualberry" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Product Discovery</strong><span>Eqqualberry — 11.3M+ Views</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-brand.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Influencer Campaign</strong><span>Pure Jeju</span></div>
+                <a href="/pages/case-study?brand=vaseline" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-brand.svg" alt="Vaseline" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Beauty Hacks</strong><span>Vaseline — 2.84M+ Views</span></div>
                 </a>
-                <a href="/pages/case-study" class="dropdown-portfolio-thumb">
-                  <img src="/assets/placeholder-portfolio.svg" alt="Campaign" />
-                  <div class="dropdown-portfolio-thumb-label"><strong>Campaign Strategy</strong><span>Seoul Glow Co.</span></div>
+                <a href="/pages/case-study?brand=axis-y" class="dropdown-portfolio-thumb">
+                  <img src="/assets/placeholder-portfolio.svg" alt="AXIS-Y" />
+                  <div class="dropdown-portfolio-thumb-label"><strong>Treatment Skincare</strong><span>AXIS-Y — 2.1M+ Views</span></div>
                 </a>
               </div>
               <div class="dropdown-portfolio-footer-row">
-                <span>Recent projects</span>
+                <span>7 brand partnerships</span>
                 <a href="/pages/portfolio">See all →</a>
               </div>
             </div>
@@ -166,99 +343,161 @@
       </section>
     </div>
 
-    <!-- Portfolio Page Content -->
     <main class="page-shell">
 
-      <!-- Page Header -->
-      <section class="pf-header-section">
+      <!-- Hero -->
+      <section class="pf2-hero">
         <div class="container">
-          <h1 class="pf-heading">Our Campaigns</h1>
-
-          <!-- Filter Pills -->
-          <div class="pf-filters" id="portfolio-filters">
-            <button class="pf-filter is-active" data-filter="all">All</button>
-            <button class="pf-filter" data-filter="ugc">UGC Campaigns</button>
-            <button class="pf-filter" data-filter="influencer">Influencer</button>
-            <button class="pf-filter" data-filter="strategy">Campaign Strategy</button>
-            <button class="pf-filter" data-filter="sourcing">Creator Sourcing</button>
+          <div class="pf2-hero-inner">
+            <div class="pf2-eyebrow">Beauty &amp; Skincare Creator Portfolio</div>
+            <h1>Turning Skincare Education<br>Into Product Discovery</h1>
+            <p class="pf2-hero-body">
+              I partner with beauty and skincare brands to create content that simplifies product benefits, builds consumer trust, and drives product discovery through creator-led storytelling.
+              <br><br>
+              Over the years, I've worked with leading skincare brands across K-Beauty, clinical skincare, and beauty wellness categories, producing educational content that has generated over <strong>96.9 Million Views</strong> across TikTok.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Portfolio Card Grid -->
-      <section class="pf-grid-section">
+      <!-- Stats -->
+      <div class="pf2-stats">
         <div class="container">
-          <div class="pf-card-grid" id="portfolio-grid">
+          <div class="pf2-stats-grid">
+            <div class="pf2-stat">
+              <div class="pf2-stat-num">96.9M+</div>
+              <div class="pf2-stat-label">Total Views Generated</div>
+            </div>
+            <div class="pf2-stat">
+              <div class="pf2-stat-num">7</div>
+              <div class="pf2-stat-label">Brand Partnerships</div>
+            </div>
+            <div class="pf2-stat">
+              <div class="pf2-stat-num">16</div>
+              <div class="pf2-stat-label">Published Videos</div>
+            </div>
+            <div class="pf2-stat">
+              <div class="pf2-stat-num">78.5M+</div>
+              <div class="pf2-stat-label">Views for Medicube</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            <a href="/pages/case-study" class="pf-card" data-category="ugc">
-              <img src="/assets/placeholder-hero.svg" alt="Lumière Seoul" class="pf-card-img" />
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">Lumière Seoul</span>
-                <p class="pf-card-title">Repositioning a skincare launch through creator-led storytelling focused on ingredient benefits and real-use scenarios.</p>
-              </div>
-            </a>
+      <!-- Brand Cards -->
+      <section class="pf2-grid-section">
+        <div class="container">
+          <div class="pf2-section-label">Featured Case Studies</div>
+          <div class="row g-4">
 
-            <a href="/pages/case-study" class="pf-card" data-category="influencer">
-              <img src="/assets/placeholder-portfolio.svg" alt="Glow Theory" class="pf-card-img" />
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">Glow Theory</span>
-                <p class="pf-card-title">Activating global creators aligned with target markets to drive authentic product discovery and engagement.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=medicube" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">Medicube</span>
+                  <span class="pf2-card-badge">78.5M+</span>
+                </div>
+                <p class="pf2-card-desc">High-performing skincare content series focused on ingredient education, product discovery, and routine-based skincare storytelling.</p>
+                <div class="pf2-card-footer">
+                  <span>4 Published Videos</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card" data-category="strategy">
-              <img src="/assets/placeholder-brand.svg" alt="Pure Jeju" class="pf-card-img" />
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">Pure Jeju</span>
-                <p class="pf-card-title">Defining a content direction that made a K-beauty product clearly understood in Western markets.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=eqqualberry" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">Eqqualberry</span>
+                  <span class="pf2-card-badge">11.3M+</span>
+                </div>
+                <p class="pf2-card-desc">Multi-video skincare campaign designed to educate consumers on targeted skincare solutions while increasing product awareness.</p>
+                <div class="pf2-card-footer">
+                  <span>4 Published Videos</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card" data-category="ugc">
-              <img src="/assets/placeholder-hero.svg" alt="Seoul Glow Co." class="pf-card-img" />
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">Seoul Glow Co.</span>
-                <p class="pf-card-title">Structuring a campaign execution system that delivered consistent, high-quality content without delays.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=vaseline" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">Vaseline</span>
+                  <span class="pf2-card-badge">2.84M+</span>
+                </div>
+                <p class="pf2-card-desc">Creative beauty hacks that repositioned a familiar household product through practical skincare applications.</p>
+                <div class="pf2-card-footer">
+                  <span>3 Published Videos</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card pf-card-coming-soon" data-category="sourcing">
-              <img src="/assets/placeholder-portfolio.svg" alt="Coming Soon" class="pf-card-img" />
-              <div class="pf-card-badge">Coming Soon</div>
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">K-Beauty Brand</span>
-                <p class="pf-card-title">Onboarding 200+ micro-creators into a global sourcing program.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=axis-y" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">AXIS-Y</span>
+                  <span class="pf2-card-badge">2.1M+</span>
+                </div>
+                <p class="pf2-card-desc">Educational skincare content focused on treatment products and ingredient-led skincare solutions.</p>
+                <div class="pf2-card-footer">
+                  <span>2 Published Videos</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card pf-card-coming-soon" data-category="influencer">
-              <img src="/assets/placeholder-brand.svg" alt="Coming Soon" class="pf-card-img" />
-              <div class="pf-card-badge">Coming Soon</div>
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">K-Beauty Brand</span>
-                <p class="pf-card-title">Moving a skincare brand from niche to top 3 in its category through creator seeding.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=dr-althea" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">Dr. Althea</span>
+                  <span class="pf2-card-badge">1.1M+</span>
+                </div>
+                <p class="pf2-card-desc">Premium skincare education designed to communicate product efficacy through relatable consumer storytelling.</p>
+                <div class="pf2-card-footer">
+                  <span>1 Published Video</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card pf-card-coming-soon" data-category="strategy">
-              <img src="/assets/placeholder-hero.svg" alt="Coming Soon" class="pf-card-img" />
-              <div class="pf-card-badge">Coming Soon</div>
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">K-Beauty Brand</span>
-                <p class="pf-card-title">Increasing ROAS by 300% through a full-funnel paid and creator strategy.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=anua" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">Anua</span>
+                  <span class="pf2-card-badge">555K+</span>
+                </div>
+                <p class="pf2-card-desc">Trust-led skincare content designed to increase product consideration and brand familiarity.</p>
+                <div class="pf2-card-footer">
+                  <span>1 Published Video</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
-            <a href="/pages/case-study" class="pf-card pf-card-coming-soon" data-category="ugc">
-              <img src="/assets/placeholder-portfolio.svg" alt="Coming Soon" class="pf-card-img" />
-              <div class="pf-card-badge">Coming Soon</div>
-              <div class="pf-card-overlay">
-                <span class="pf-card-brand">K-Beauty Brand</span>
-                <p class="pf-card-title">Powering a K-beauty content calendar through niche-specific micro-influencer activations.</p>
-              </div>
-            </a>
+            <div class="col-lg-4 col-md-6">
+              <a href="/pages/case-study?brand=the-ordinary" class="pf2-card">
+                <div class="pf2-card-top">
+                  <span class="pf2-card-name">The Ordinary</span>
+                  <span class="pf2-card-badge">575K+</span>
+                </div>
+                <p class="pf2-card-desc">Educational skincare content focused on pigmentation concerns and solution-based skincare routines.</p>
+                <div class="pf2-card-footer">
+                  <span>1 Published Video</span>
+                  <span class="pf2-card-cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </a>
+            </div>
 
           </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="pf2-cta">
+        <div class="container">
+          <h2>Want to Work Together?</h2>
+          <p>I'm open to brand partnerships across skincare, beauty, and wellness. Let's create content that converts.</p>
+          <a href="/pages/contact" class="btn btn-gold btn-pill">Get in Touch</a>
         </div>
       </section>
 
