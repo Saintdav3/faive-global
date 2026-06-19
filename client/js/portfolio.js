@@ -591,15 +591,26 @@ export const loadBrandPage = (mountId) => {
   const videoCards = brand.videos
     .map(
       (v) => `
-      <div class="cs-tt-embed-wrap">
+      <div class="cs-tt-embed-wrap" data-video-id="${v.id}">
+        <div class="cs-tt-poster">
+          <div class="cs-tt-poster-bg"></div>
+          <div class="cs-tt-play-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="cs-tt-poster-foot">
+            <span class="cs-tt-poster-title">${v.title}</span>
+            <span class="cs-tt-poster-hint">Hover to preview</span>
+          </div>
+        </div>
         <iframe
-          src="https://www.tiktok.com/embed/v2/${v.id}"
           class="cs-tt-iframe"
+          src=""
+          data-src="https://www.tiktok.com/embed/v2/${v.id}?autoplay=1&music_info=0"
           allowfullscreen
-          allow="encrypted-media; clipboard-write"
+          allow="encrypted-media; clipboard-write; autoplay"
           scrolling="no"
-          loading="lazy"
-          title="${v.title}">
+          title="${v.title}"
+          style="display:none">
         </iframe>
         <div class="cs-tt-embed-label">
           <span class="cs-tt-embed-title">${v.title}</span>
@@ -611,7 +622,7 @@ export const loadBrandPage = (mountId) => {
 
   mount.innerHTML = `
     <div class="container" style="padding-top:2.5rem;padding-bottom:5rem;">
-      <a href="/pages/case-study" class="cs-back-link">${arrowLeft} Back to Portfolio</a>
+      <a href="/pages/portfolio" class="cs-back-link">${arrowLeft} Back to Portfolio</a>
       <div class="cs-brand-block" style="border-bottom:none;padding-top:2rem;">
         <div class="cs-brand-header">
           <h1 class="cs-brand-name">${brand.name}</h1>
@@ -629,10 +640,27 @@ export const loadBrandPage = (mountId) => {
         </div>
       </div>
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e8e4da;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
-        <a href="/pages/case-study" class="cs-back-link" style="margin-bottom:0;">${arrowLeft} View All Brands</a>
+        <a href="/pages/portfolio" class="cs-back-link" style="margin-bottom:0;">${arrowLeft} View All Brands</a>
         <a href="/pages/contact" class="btn btn-gold btn-pill" style="font-size:0.875rem;padding:0.6rem 1.75rem;">Work With Me</a>
       </div>
     </div>`;
+
+  mount.querySelectorAll('.cs-tt-embed-wrap').forEach((wrap) => {
+    const poster = wrap.querySelector('.cs-tt-poster');
+    const iframe = wrap.querySelector('.cs-tt-iframe');
+
+    wrap.addEventListener('mouseenter', () => {
+      if (!iframe.src) iframe.src = iframe.dataset.src;
+      poster.style.display = 'none';
+      iframe.style.display = 'block';
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      iframe.style.display = 'none';
+      iframe.src = '';
+      poster.style.display = 'flex';
+    });
+  });
 
   return true;
 };
