@@ -285,7 +285,7 @@
         font-family: 'Gilroy-Bold', sans-serif;
       }
       .sv-stat-panel {
-        background: var(--color-ivory, #f5f2eb);
+        background: var(--color-ink, #1a1a18);
         border-radius: 16px;
         padding: 2rem;
         display: flex;
@@ -295,32 +295,33 @@
       .sv-stat-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 0.875rem;
       }
       .sv-stat-box {
-        background: #fff;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 10px;
         padding: 1.25rem;
       }
       .sv-stat-num {
         font-family: 'Gilroy-Bold', sans-serif;
         font-size: 1.75rem;
-        color: var(--color-ink, #1a1a18);
+        color: var(--color-gold, #c9a84c);
         line-height: 1;
         margin-bottom: 0.3rem;
       }
       .sv-stat-lbl {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--color-muted, #6b6b60);
+        letter-spacing: 0.09em;
+        color: rgba(255,255,255,0.45);
       }
       .sv-stat-note {
         font-size: 0.8125rem;
-        color: var(--color-muted, #6b6b60);
+        color: rgba(255,255,255,0.5);
         line-height: 1.65;
         padding-top: 0.5rem;
-        border-top: 1px solid #e8e4da;
+        border-top: 1px solid rgba(255,255,255,0.1);
       }
       @media (max-width: 768px) {
         .sv-results-layout { grid-template-columns: 1fr; gap: 3rem; }
@@ -720,10 +721,7 @@
                     <div class="sv-stat-num">96.9M+</div>
                     <div class="sv-stat-lbl">Total Views</div>
                   </div>
-                  <div class="sv-stat-box">
-                    <div class="sv-stat-num">78.5M+</div>
-                    <div class="sv-stat-lbl">Views — Medicube</div>
-                  </div>
+
                   <div class="sv-stat-box">
                     <div class="sv-stat-num">7</div>
                     <div class="sv-stat-lbl">Brand Partners</div>
