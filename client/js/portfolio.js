@@ -544,17 +544,11 @@ export const loadBrandOverview = (sectionId) => {
   const cards = brandStudies
     .map(
       (b) => `
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-3 col-md-4 col-6">
         <a href="/pages/case-study?brand=${b.id}" class="cs-overview-card">
-          <div class="cs-overview-card-header">
-            <span class="cs-overview-card-name">${b.name}</span>
-            <span class="cs-overview-card-badge">${b.views}</span>
-          </div>
-          <p class="cs-overview-card-desc">${b.description}</p>
-          <div class="cs-overview-card-footer">
-            <span>${b.videos.length} Published ${b.videos.length === 1 ? 'Video' : 'Videos'}</span>
-            <span class="cs-overview-card-link">View Case Study</span>
-          </div>
+          <div class="cs-overview-card-logo">${b.name.charAt(0)}</div>
+          <div class="cs-overview-card-name">${b.name}</div>
+          <span class="cs-overview-card-badge">${b.views}</span>
         </a>
       </div>`
     )
