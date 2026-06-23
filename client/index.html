@@ -150,6 +150,32 @@
           padding: 3rem 0;
         }
       }
+      /* What I Offer — gradient section overrides */
+      .fi-offer-section {
+        background: var(--gradient-gold, linear-gradient(135deg, #fad201 0%, #f19f1a 100%));
+        padding: 5rem 0;
+      }
+      .fi-offer-section .section-heading .eyebrow {
+        color: rgba(26,26,24,0.6);
+      }
+      .fi-offer-section .section-heading h2 {
+        color: var(--color-ink, #1a1a18);
+      }
+      .fi-offer-section .svc-card {
+        background: var(--color-ink, #1a1a18);
+        border-color: rgba(255,255,255,0.06);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      }
+      .fi-offer-section .svc-card:hover {
+        border-color: rgba(249,210,1,0.35);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+      }
+      .fi-offer-section .svc-card h3 {
+        color: #fff;
+      }
+      .fi-offer-section .svc-card p {
+        color: rgba(255,255,255,0.55);
+      }
     </style>
   </head>
   <body data-page="home">
@@ -581,7 +607,7 @@
       </section>
 
       <!-- What I Offer -->
-      <section class="section-shell bg-ivory">
+      <section class="fi-offer-section">
         <div class="container">
           <div class="section-heading">
             <span class="eyebrow">What I Offer</span>
