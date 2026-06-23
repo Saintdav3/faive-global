@@ -531,7 +531,7 @@ const brandStudies = [
   {
     id: 'the-ordinary',
     name: 'The Ordinary',
-    logo: '/assets/Gemini_Generated_Image_luvlzyluvlzyluvl.png',
+    logo: '/assets/the original.png',
     views: '575K+',
     description: 'Educational skincare content focused on pigmentation concerns and solution-based skincare routines.',
     results: ['575K+ Views', '1 Published Video'],
