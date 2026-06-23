@@ -48,9 +48,8 @@
 
       /* Stats strip */
       .pf2-stats {
-        padding: 2.5rem 0;
-        border-bottom: 1px solid #e8e4da;
-        background: #f9f7f3;
+        padding: 3rem 0;
+        background: var(--color-gold, #c9a84c);
       }
       .pf2-stats-grid {
         display: flex;
@@ -60,22 +59,24 @@
       .pf2-stat {
         flex: 1;
         min-width: 140px;
-        padding: 1rem 1.5rem;
-        border-right: 1px solid #e8e4da;
+        padding: 1rem 2rem;
+        border-right: 1px solid rgba(0,0,0,0.15);
       }
       .pf2-stat:last-child { border-right: none; }
       .pf2-stat-num {
         font-family: 'Gilroy-Bold', sans-serif;
-        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-size: clamp(2rem, 3.5vw, 3rem);
         color: var(--color-ink, #1a1a18);
         line-height: 1;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.4rem;
+        font-weight: 900;
       }
       .pf2-stat-label {
         font-size: 0.7rem;
-        letter-spacing: 0.09em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--color-muted, #6b6b60);
+        color: rgba(26,26,24,0.65);
+        font-family: 'Gilroy-Bold', sans-serif;
       }
 
       /* Brand grid */
@@ -383,19 +384,19 @@
         <div class="container">
           <div class="pf2-stats-grid">
             <div class="pf2-stat">
-              <div class="pf2-stat-num">96.9M+</div>
+              <div class="pf2-stat-num" data-count="96.9" data-suffix="M+">0</div>
               <div class="pf2-stat-label">Total Views Generated</div>
             </div>
             <div class="pf2-stat">
-              <div class="pf2-stat-num">7</div>
+              <div class="pf2-stat-num" data-count="7" data-suffix="">0</div>
               <div class="pf2-stat-label">Brand Partnerships</div>
             </div>
             <div class="pf2-stat">
-              <div class="pf2-stat-num">16</div>
+              <div class="pf2-stat-num" data-count="16" data-suffix="">0</div>
               <div class="pf2-stat-label">Published Videos</div>
             </div>
             <div class="pf2-stat">
-              <div class="pf2-stat-num">78.5M+</div>
+              <div class="pf2-stat-num" data-count="78.5" data-suffix="M+">0</div>
               <div class="pf2-stat-label">Views for Medicube</div>
             </div>
           </div>
@@ -535,5 +536,33 @@
       </div>
     </footer>
     <script type="module" src="/js/main.js"></script>
+    <script>
+      const counters = document.querySelectorAll('.pf2-stat-num[data-count]');
+      const runCounter = (el) => {
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const isDecimal = target % 1 !== 0;
+        const duration = 1800;
+        const start = performance.now();
+        const tick = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const value = target * ease;
+          el.textContent = (isDecimal ? value.toFixed(1) : Math.floor(value)) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
