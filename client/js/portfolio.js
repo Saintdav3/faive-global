@@ -115,7 +115,7 @@ const servicePillMarkup = (deliverables = []) =>
 
 const isVideoAsset = (url = '') => /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(url);
 
-const renderCoverMedia = (item) => {
+const renderCoverMedia = (item) => {yes
   const mediaUrl = item.heroMediaUrl || portfolioPlaceholder;
 
   if (isVideoAsset(mediaUrl)) {
@@ -450,6 +450,7 @@ const brandStudies = [
   {
     id: 'medicube',
     name: 'Medicube',
+    logo: '/assets/Medicube.png',
     views: '78.5M+',
     description: 'Medicube partnered with Fainna on a high-performing skincare content series focused on ingredient education, product discovery, and routine-based skincare storytelling.',
     challenge: 'Communicate the benefits of advanced skincare ingredients in a way that feels simple, relatable, and engaging for TikTok audiences.',
@@ -465,6 +466,7 @@ const brandStudies = [
   {
     id: 'eqqualberry',
     name: 'Eqqualberry',
+    logo: '/assets/eqb.png',
     views: '11.3M+',
     description: 'Eqqualberry partnered with Fainna on a multi-video skincare campaign designed to educate consumers on targeted skincare solutions while increasing product awareness.',
     challenge: 'Increase consumer understanding of product benefits while making skincare education visually engaging and easy to follow.',
@@ -480,6 +482,7 @@ const brandStudies = [
   {
     id: 'axis-y',
     name: 'AXIS-Y',
+    logo: '/assets/Axis-y.jpg',
     views: '2.1M+',
     description: 'AXIS-Y partnered with Fainna to create educational skincare content focused on treatment products and ingredient-led skincare solutions.',
     challenge: 'Help consumers understand how specialized skincare products fit into their routines.',
@@ -493,6 +496,7 @@ const brandStudies = [
   {
     id: 'dr-althea',
     name: 'Dr. Althea',
+    logo: '/assets/Dr Althea.png',
     views: '1.1M+',
     description: 'Premium skincare education designed to communicate product efficacy through relatable consumer storytelling.',
     results: ['1.1M+ Views', '1 Published Video'],
@@ -503,6 +507,7 @@ const brandStudies = [
   {
     id: 'anua',
     name: 'Anua',
+    logo: '/assets/anua.png',
     views: '555K+',
     description: 'Trust-led skincare content designed to increase product consideration and brand familiarity.',
     results: ['555K+ Views', '1 Published Video'],
@@ -513,6 +518,7 @@ const brandStudies = [
   {
     id: 'vaseline',
     name: 'Vaseline',
+    logo: '/assets/vaseline.png',
     views: '2.84M+',
     description: 'Creative beauty hacks that repositioned a familiar household product through practical skincare applications.',
     results: ['2.84M+ Views', '3 Published Videos'],
@@ -525,6 +531,7 @@ const brandStudies = [
   {
     id: 'the-ordinary',
     name: 'The Ordinary',
+    logo: '/assets/Gemini_Generated_Image_luvlzyluvlzyluvl.png',
     views: '575K+',
     description: 'Educational skincare content focused on pigmentation concerns and solution-based skincare routines.',
     results: ['575K+ Views', '1 Published Video'],
@@ -546,7 +553,9 @@ export const loadBrandOverview = (sectionId) => {
       (b) => `
       <div class="col-lg-3 col-md-4 col-6">
         <a href="/pages/case-study?brand=${b.id}" class="cs-overview-card">
-          <div class="cs-overview-card-logo">${b.name.charAt(0)}</div>
+          <div class="cs-overview-card-logo">
+            ${b.logo ? `<img src="${b.logo}" alt="${b.name}" style="width:100%;height:100%;object-fit:contain;border-radius:50%;" />` : b.name.charAt(0)}
+          </div>
           <div class="cs-overview-card-name">${b.name}</div>
           <span class="cs-overview-card-badge">${b.views}</span>
         </a>
