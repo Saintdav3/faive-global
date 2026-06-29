@@ -473,7 +473,7 @@ img {
    HERO LIGHT VARIANT
    ============================================================ */
 .hero-light {
-  background: linear-gradient(160deg, #faf9f6 0%, #f0ebe0 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff9f43 15%, #ffd32a 30%, #0be881 48%, #18dcff 64%, #7d5fff 80%, #ff6b81 100%);
   color: var(--color-ink);
 }
 
