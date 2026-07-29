@@ -150,6 +150,33 @@
           padding: 3rem 0;
         }
       }
+      /* Medicube featured videos */
+      .fi-videos-section { padding: 5rem 0; background: var(--color-ink, #1a1a18); }
+      .fi-videos-section .section-heading .eyebrow { color: var(--color-gold, #c9a84c); }
+      .fi-videos-section .section-heading h2 { color: #fff; }
+      .fi-videos-section .section-heading p { color: rgba(255,255,255,0.5); }
+      .fi-videos-cta { margin-top: 2rem; }
+      .cs-tt-scroll { display:flex; gap:1.25rem; overflow-x:auto; padding-bottom:1rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+      .cs-tt-scroll::-webkit-scrollbar { height:4px; }
+      .cs-tt-scroll::-webkit-scrollbar-track { background:#2a2a28; border-radius:2px; }
+      .cs-tt-scroll::-webkit-scrollbar-thumb { background:var(--color-gold); border-radius:2px; }
+      .cs-tt-embed-wrap { flex-shrink:0; scroll-snap-align:start; width:300px; display:flex; flex-direction:column; gap:0.625rem; cursor:pointer; }
+      .cs-tt-iframe { width:300px; height:535px; border:none; border-radius:12px; display:block; background:#0e0e0e; }
+      .cs-tt-poster { width:300px; height:535px; border-radius:12px; background:#0e0e0e; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; transition:transform 0.2s; }
+      .cs-tt-embed-wrap:hover .cs-tt-poster { transform:scale(1.01); }
+      .cs-tt-thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+      .cs-tt-poster-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.25); transition:background 0.2s; }
+      .cs-tt-embed-wrap:hover .cs-tt-poster-overlay { background:rgba(0,0,0,0.1); }
+      .cs-tt-play-btn { position:relative; z-index:1; width:56px; height:56px; border-radius:50%; background:var(--color-gold,#c9a84c); color:#1a1a18; display:flex; align-items:center; justify-content:center; transition:transform 0.2s,box-shadow 0.2s; box-shadow:0 0 0 0 rgba(201,168,76,0.4); }
+      .cs-tt-embed-wrap:hover .cs-tt-play-btn { transform:scale(1.1); box-shadow:0 0 0 12px rgba(201,168,76,0.15); }
+      .cs-tt-poster-foot { position:absolute; bottom:0; left:0; right:0; z-index:1; padding:1.25rem; background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 100%); display:flex; flex-direction:column; gap:0.25rem; }
+      .cs-tt-poster-title { font-family:'Gilroy-Bold',sans-serif; font-size:0.875rem; color:#fff; }
+      .cs-tt-poster-hint { font-size:0.72rem; color:rgba(255,255,255,0.5); letter-spacing:0.04em; }
+      .cs-tt-embed-label { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; padding:0 0.25rem; }
+      .cs-tt-embed-title { font-family:'Gilroy-Bold',sans-serif; font-size:0.8rem; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration:none; }
+      .cs-tt-embed-title:hover { text-decoration:underline; color:#fff; }
+      .cs-tt-embed-views { font-size:0.75rem; color:rgba(255,255,255,0.45); white-space:nowrap; flex-shrink:0; }
+
       /* What I Offer — gradient section overrides */
       .fi-offer-section {
         background: var(--gradient-gold, linear-gradient(135deg, #fad201 0%, #f19f1a 100%));
@@ -663,46 +690,65 @@
         </div>
       </section>
 
-      <!-- Results -->
-      <section class="section-shell">
+      <!-- Medicube Featured Videos -->
+      <section class="fi-videos-section">
         <div class="container">
           <div class="section-heading">
-            <span class="eyebrow">Results</span>
-            <h2>Why Brands Work With Me</h2>
+            <span class="eyebrow">Featured Videos</span>
+            <h2>Content That Speaks for Itself.</h2>
+            <p style="max-width:520px;margin-top:0.75rem;line-height:1.65;color:rgba(255,255,255,0.5);">
+              A look at some of my most-viewed skincare content — created for Medicube and watched by millions across TikTok.
+            </p>
           </div>
-          <div class="fi-results-grid">
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text"
-                >Engaged beauty-focused audience</span
-              >
+          <div class="cs-tt-scroll">
+
+            <div class="cs-tt-embed-wrap" data-video-id="7592954458749930772">
+              <a href="https://vt.tiktok.com/ZS91wYFUc/" target="_blank" rel="noopener noreferrer" class="cs-tt-poster">
+                <img src="/assets/thumbnails/7592954458749930772.jpg" alt="Peptide Serum" class="cs-tt-thumb" />
+                <div class="cs-tt-poster-overlay"></div>
+                <div class="cs-tt-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <div class="cs-tt-poster-foot"><span class="cs-tt-poster-title">Peptide Serum</span><span class="cs-tt-poster-hint">Hover to preview &middot; Click to open</span></div>
+              </a>
+              <iframe class="cs-tt-iframe" src="about:blank" data-src="https://www.tiktok.com/embed/v2/7592954458749930772?autoplay=1" allowfullscreen allow="encrypted-media; autoplay" scrolling="no" title="Peptide Serum" style="display:none"></iframe>
+              <div class="cs-tt-embed-label"><a href="https://vt.tiktok.com/ZS91wYFUc/" target="_blank" rel="noopener noreferrer" class="cs-tt-embed-title">Peptide Serum</a><span class="cs-tt-embed-views">49.6M Views</span></div>
             </div>
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text"
-                >Authentic product recommendations</span
-              >
+
+            <div class="cs-tt-embed-wrap" data-video-id="7588622644660997396">
+              <a href="https://vt.tiktok.com/ZS91TusqN/" target="_blank" rel="noopener noreferrer" class="cs-tt-poster">
+                <img src="/assets/thumbnails/7588622644660997396.jpg" alt="Kojic Acid + Turmeric" class="cs-tt-thumb" />
+                <div class="cs-tt-poster-overlay"></div>
+                <div class="cs-tt-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <div class="cs-tt-poster-foot"><span class="cs-tt-poster-title">Kojic Acid + Turmeric</span><span class="cs-tt-poster-hint">Hover to preview &middot; Click to open</span></div>
+              </a>
+              <iframe class="cs-tt-iframe" src="about:blank" data-src="https://www.tiktok.com/embed/v2/7588622644660997396?autoplay=1" allowfullscreen allow="encrypted-media; autoplay" scrolling="no" title="Kojic Acid + Turmeric" style="display:none"></iframe>
+              <div class="cs-tt-embed-label"><a href="https://vt.tiktok.com/ZS91TusqN/" target="_blank" rel="noopener noreferrer" class="cs-tt-embed-title">Kojic Acid + Turmeric</a><span class="cs-tt-embed-views">19.3M Views</span></div>
             </div>
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text">High-quality video production</span>
+
+            <div class="cs-tt-embed-wrap" data-video-id="7611120311723085076">
+              <a href="https://vt.tiktok.com/ZS91ToUFm/" target="_blank" rel="noopener noreferrer" class="cs-tt-poster">
+                <img src="/assets/thumbnails/7611120311723085076.jpg" alt="Kojic Peel Acid Duo" class="cs-tt-thumb" />
+                <div class="cs-tt-poster-overlay"></div>
+                <div class="cs-tt-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <div class="cs-tt-poster-foot"><span class="cs-tt-poster-title">Kojic Peel Acid Duo</span><span class="cs-tt-poster-hint">Hover to preview &middot; Click to open</span></div>
+              </a>
+              <iframe class="cs-tt-iframe" src="about:blank" data-src="https://www.tiktok.com/embed/v2/7611120311723085076?autoplay=1" allowfullscreen allow="encrypted-media; autoplay" scrolling="no" title="Kojic Peel Acid Duo" style="display:none"></iframe>
+              <div class="cs-tt-embed-label"><a href="https://vt.tiktok.com/ZS91ToUFm/" target="_blank" rel="noopener noreferrer" class="cs-tt-embed-title">Kojic Peel Acid Duo</a><span class="cs-tt-embed-views">8.6M Views</span></div>
             </div>
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text">Strong storytelling approach</span>
+
+            <div class="cs-tt-embed-wrap" data-video-id="7598867020800625940">
+              <a href="https://vt.tiktok.com/ZS91wu699/" target="_blank" rel="noopener noreferrer" class="cs-tt-poster">
+                <img src="/assets/thumbnails/7598867020800625940.jpg" alt="Global Mask" class="cs-tt-thumb" />
+                <div class="cs-tt-poster-overlay"></div>
+                <div class="cs-tt-play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <div class="cs-tt-poster-foot"><span class="cs-tt-poster-title">Global Mask</span><span class="cs-tt-poster-hint">Hover to preview &middot; Click to open</span></div>
+              </a>
+              <iframe class="cs-tt-iframe" src="about:blank" data-src="https://www.tiktok.com/embed/v2/7598867020800625940?autoplay=1" allowfullscreen allow="encrypted-media; autoplay" scrolling="no" title="Global Mask" style="display:none"></iframe>
+              <div class="cs-tt-embed-label"><a href="https://vt.tiktok.com/ZS91wu699/" target="_blank" rel="noopener noreferrer" class="cs-tt-embed-title">Global Mask</a><span class="cs-tt-embed-views">1M Views</span></div>
             </div>
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text"
-                >Experience working with global beauty brands</span
-              >
-            </div>
-            <div class="fi-result-item">
-              <span class="fi-result-check">&#10003;</span>
-              <span class="fi-result-text"
-                >Content optimized for both organic and paid performance</span
-              >
-            </div>
+
+          </div>
+          <div style="margin-top:2rem;">
+            <a href="/pages/case-study?brand=medicube" class="btn btn-gold btn-pill">View Full Medicube Case Study</a>
           </div>
         </div>
       </section>
@@ -789,6 +835,24 @@
                 </div>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Results</span>
+            <h2>Why Brands Work With Me</h2>
+          </div>
+          <div class="fi-results-grid">
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">Engaged beauty-focused audience</span></div>
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">Authentic product recommendations</span></div>
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">High-quality video production</span></div>
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">Strong storytelling approach</span></div>
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">Experience working with global beauty brands</span></div>
+            <div class="fi-result-item"><span class="fi-result-check">&#10003;</span><span class="fi-result-text">Content optimized for both organic and paid performance</span></div>
           </div>
         </div>
       </section>
@@ -894,5 +958,21 @@
       </div>
     </footer>
     <script type="module" src="/js/main.js"></script>
+    <script>
+      document.querySelectorAll('.cs-tt-embed-wrap').forEach((wrap) => {
+        const poster = wrap.querySelector('.cs-tt-poster');
+        const iframe = wrap.querySelector('.cs-tt-iframe');
+        wrap.addEventListener('mouseenter', () => {
+          poster.style.display = 'none';
+          iframe.style.display = 'block';
+          iframe.src = iframe.dataset.src;
+        });
+        wrap.addEventListener('mouseleave', () => {
+          iframe.src = 'about:blank';
+          iframe.style.display = 'none';
+          poster.style.display = 'flex';
+        });
+      });
+    </script>
   </body>
 </html>
