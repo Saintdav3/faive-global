@@ -5,3 +5,4 @@ dist
 coverage
 server/uploads
 
+.vercel

@@ -17,9 +17,16 @@
   box-sizing: border-box;
 }
 
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 body {
   margin: 0;
-  font-family: 'Gilroy-Regular', sans-serif;
+  font-family: 'Gilroy-Regular',  sans-serif;
   color: var(--color-ink);
   background: linear-gradient(180deg, #ffffff 0%, #f7f2eb 100%);
   overflow-x: hidden;
@@ -1056,7 +1063,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.75rem;
-  color: var(--color-gold);
+  color: #000000;
   font-weight: 800;
 }
 
@@ -1066,7 +1073,7 @@ img {
 .cta-card h2,
 .case-study-shell h1 {
   font-family: 'Gilroy-Heavy', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-size: clamp(1rem, 4vw, 1.50rem);
   line-height: 0.98;
   margin: 0.85rem 0 1rem;
 }
