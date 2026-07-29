@@ -314,34 +314,112 @@
         flex-shrink: 0;
       }
 
-      /* What I Offer — gradient section overrides */
+      /* What I Offer — video bg section */
       .fi-offer-section {
-        background: var(
-          --gradient-gold,
-          linear-gradient(135deg, #fad201 0%, #f19f1a 100%)
-        );
+        position: relative;
         padding: 15rem 0;
+        overflow: hidden;
+      }
+      .fi-offer-video-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+      }
+      .fi-offer-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(10, 10, 8, 0.82) 0%,
+          rgba(10, 10, 8, 0.65) 50%,
+          rgba(26, 20, 4, 0.78) 100%
+        );
+        z-index: 1;
+      }
+      .fi-offer-section .container {
+        position: relative;
+        z-index: 2;
       }
       .fi-offer-section .section-heading .eyebrow {
-        color: rgba(26, 26, 24, 0.6);
+        color: var(--color-gold, #c9a84c);
       }
       .fi-offer-section .section-heading h2 {
-        color: var(--color-ink, #1a1a18);
-      }
-      .fi-offer-section .svc-card {
-        background: var(--color-ink, #1a1a18);
-        border-color: rgba(255, 255, 255, 0.06);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-      }
-      .fi-offer-section .svc-card:hover {
-        border-color: rgba(249, 210, 1, 0.35);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-      }
-      .fi-offer-section .svc-card h3 {
         color: #fff;
       }
-      .fi-offer-section .svc-card p {
-        color: rgba(255, 255, 255, 0.55);
+      /* services list */
+      .fi-offer-list {
+        list-style: none;
+        padding: 0;
+        margin: 3.5rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .fi-offer-item {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.6rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: gap 0.3s ease;
+      }
+      .fi-offer-item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .fi-offer-item:hover {
+        gap: 2rem;
+      }
+      .fi-offer-item:hover .fi-offer-num {
+        color: var(--color-gold, #c9a84c);
+      }
+      .fi-offer-item:hover .fi-offer-name {
+        color: #fff;
+      }
+      .fi-offer-item:hover .fi-offer-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .fi-offer-num {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.35);
+        min-width: 2rem;
+        transition: color 0.3s ease;
+        letter-spacing: 0.05em;
+      }
+      .fi-offer-name {
+        font-family: 'Gilroy-Bold', sans-serif;
+        font-size: clamp(1.35rem, 3vw, 2rem);
+        color: rgba(255, 255, 255, 0.75);
+        flex: 1;
+        transition: color 0.3s ease;
+        letter-spacing: -0.01em;
+      }
+      .fi-offer-tag {
+        font-family: 'Gilroy-Regular', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.35);
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 100px;
+        padding: 0.3rem 0.9rem;
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .fi-offer-tag { display: inline-block; }
+      }
+      .fi-offer-arrow {
+        color: var(--color-gold, #c9a84c);
+        font-size: 1.25rem;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
       }
     </style>
   </head>
@@ -526,6 +604,7 @@
           </div>
         </div>
 
+        
         <!-- Portfolio mega-menu -->
         <div
           data-menu="portfolio"
@@ -628,7 +707,7 @@
                 </div>
                 <div class="hero-stack-slide is-back">
                   <img
-                    src="/assets/placeholder-brand.svg"
+                    src="/assets/TIMM9760.JPG"
                     alt="AXIS-Y campaign"
                     class="hero-stack-img"
                   />
@@ -757,59 +836,56 @@
 
       <!-- What I Offer -->
       <section class="fi-offer-section">
+        <!-- video background -->
+        <video
+          class="fi-offer-video-bg"
+          src="/assets/offer-bg.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+        <div class="fi-offer-overlay"></div>
+
         <div class="container">
           <div class="section-heading">
             <span class="eyebrow">What I Offer</span>
-            <h2>Content built around your brand goals.</h2>
+            <h2 style="max-width:640px;">Content built around<br>your brand goals.</h2>
           </div>
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <article class="svc-card h-100">
-                <h3>Influencer Campaigns</h3>
-                <p>
-                  Authentic content shared with my audience to increase
-                  awareness, engagement, and conversions.
-                </p>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="svc-card h-100">
-                <h3>UGC Content</h3>
-                <p>
-                  High-quality user-generated content created for brand-owned
-                  channels, advertisements, websites, and social media
-                  campaigns.
-                </p>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="svc-card h-100">
-                <h3>Product Demonstrations</h3>
-                <p>
-                  Clear and engaging product-focused videos that showcase
-                  benefits, usage, and real-life results.
-                </p>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="svc-card h-100">
-                <h3>Storytelling Content</h3>
-                <p>
-                  Creative concepts that naturally integrate products into
-                  relatable everyday experiences.
-                </p>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="svc-card h-100">
-                <h3>Short-Form Video Production</h3>
-                <p>
-                  TikTok, Instagram Reels, and other vertical video content
-                  designed to capture attention and drive performance.
-                </p>
-              </article>
-            </div>
-          </div>
+
+          <ul class="fi-offer-list">
+            <li class="fi-offer-item">
+              <span class="fi-offer-num">01</span>
+              <span class="fi-offer-name">Influencer Campaigns</span>
+              <span class="fi-offer-tag">Awareness &amp; Conversions</span>
+              <span class="fi-offer-arrow">→</span>
+            </li>
+            <li class="fi-offer-item">
+              <span class="fi-offer-num">02</span>
+              <span class="fi-offer-name">UGC Content</span>
+              <span class="fi-offer-tag">Brand-Owned Channels</span>
+              <span class="fi-offer-arrow">→</span>
+            </li>
+            <li class="fi-offer-item">
+              <span class="fi-offer-num">03</span>
+              <span class="fi-offer-name">Product Demonstrations</span>
+              <span class="fi-offer-tag">Benefits &amp; Results</span>
+              <span class="fi-offer-arrow">→</span>
+            </li>
+            <li class="fi-offer-item">
+              <span class="fi-offer-num">04</span>
+              <span class="fi-offer-name">Storytelling Content</span>
+              <span class="fi-offer-tag">Relatable Experiences</span>
+              <span class="fi-offer-arrow">→</span>
+            </li>
+            <li class="fi-offer-item">
+              <span class="fi-offer-num">05</span>
+              <span class="fi-offer-name">Short-Form Video Production</span>
+              <span class="fi-offer-tag">TikTok &amp; Reels</span>
+              <span class="fi-offer-arrow">→</span>
+            </li>
+          </ul>
         </div>
       </section>
 
