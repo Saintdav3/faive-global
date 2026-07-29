@@ -1031,7 +1031,7 @@ img {
 
 .hero-section,
 .page-hero {
-  padding: 10rem 0 8rem;
+  padding: 12rem 0 10rem;
 }
 
 .hero-section::before,
@@ -1241,7 +1241,7 @@ img {
 }
 
 .section-shell {
-  padding: 12rem 0;
+  padding: 16rem 0;
 }
 
 .bg-ivory {
