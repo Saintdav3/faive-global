@@ -334,9 +334,9 @@
         inset: 0;
         background: linear-gradient(
           135deg,
-          rgba(10, 10, 8, 0.82) 0%,
-          rgba(10, 10, 8, 0.65) 50%,
-          rgba(26, 20, 4, 0.78) 100%
+          rgba(10, 10, 8, 0.55) 0%,
+          rgba(10, 10, 8, 0.38) 50%,
+          rgba(26, 20, 4, 0.50) 100%
         );
         z-index: 1;
       }
@@ -352,7 +352,6 @@
       }
       /* services list */
       .fi-offer-list {
-        list-style: none;
         padding: 0;
         margin: 3.5rem 0 0;
         display: flex;
@@ -366,6 +365,8 @@
         padding: 1.6rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         transition: gap 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
       }
       .fi-offer-item:first-child {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -854,38 +855,38 @@
             <h2 style="max-width:640px;">Content built around<br>your brand goals.</h2>
           </div>
 
-          <ul class="fi-offer-list">
-            <li class="fi-offer-item">
+          <div class="fi-offer-list">
+            <a href="/pages/services" class="fi-offer-item">
               <span class="fi-offer-num">01</span>
               <span class="fi-offer-name">Influencer Campaigns</span>
               <span class="fi-offer-tag">Awareness &amp; Conversions</span>
               <span class="fi-offer-arrow">→</span>
-            </li>
-            <li class="fi-offer-item">
+            </a>
+            <a href="/pages/services" class="fi-offer-item">
               <span class="fi-offer-num">02</span>
               <span class="fi-offer-name">UGC Content</span>
               <span class="fi-offer-tag">Brand-Owned Channels</span>
               <span class="fi-offer-arrow">→</span>
-            </li>
-            <li class="fi-offer-item">
+            </a>
+            <a href="/pages/services" class="fi-offer-item">
               <span class="fi-offer-num">03</span>
               <span class="fi-offer-name">Product Demonstrations</span>
               <span class="fi-offer-tag">Benefits &amp; Results</span>
               <span class="fi-offer-arrow">→</span>
-            </li>
-            <li class="fi-offer-item">
+            </a>
+            <a href="/pages/services" class="fi-offer-item">
               <span class="fi-offer-num">04</span>
               <span class="fi-offer-name">Storytelling Content</span>
               <span class="fi-offer-tag">Relatable Experiences</span>
               <span class="fi-offer-arrow">→</span>
-            </li>
-            <li class="fi-offer-item">
+            </a>
+            <a href="/pages/services" class="fi-offer-item">
               <span class="fi-offer-num">05</span>
               <span class="fi-offer-name">Short-Form Video Production</span>
               <span class="fi-offer-tag">TikTok &amp; Reels</span>
               <span class="fi-offer-arrow">→</span>
-            </li>
-          </ul>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1353,6 +1354,15 @@
     </footer>
     <script type="module" src="/js/main.js"></script>
     <script>
+      // mobile video autoplay fallback
+      const offerVid = document.querySelector('.fi-offer-video-bg');
+      if (offerVid) {
+        const tryPlay = () => offerVid.play().catch(() => {});
+        tryPlay();
+        document.addEventListener('touchstart', tryPlay, { once: true });
+        document.addEventListener('scroll', tryPlay, { once: true, passive: true });
+      }
+
       document.querySelectorAll(".cs-tt-embed-wrap").forEach((wrap) => {
         const poster = wrap.querySelector(".cs-tt-poster");
         const iframe = wrap.querySelector(".cs-tt-iframe");
