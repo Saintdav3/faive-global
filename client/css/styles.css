@@ -99,11 +99,12 @@ img {
 .navigation-logo a { display: flex; align-items: center; gap: 0.55rem; }
 
 .nav-brand-name {
-  font-family: 'Gilroy-Bold', sans-serif;
-  font-size: 1rem;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 1.55rem;
   color: var(--color-ink);
   letter-spacing: 0.01em;
   white-space: nowrap;
+  line-height: 1;
 }
 
 .nav-logo {
@@ -123,7 +124,7 @@ img {
   display: flex;
   align-items: center;
 }
-.navigation-menu-wrapper.mobile { display: none; flex-direction: column; align-items: flex-start; }
+.navigation-menu-wrapper.mobile { display: none; flex-direction: column; align-items: stretch; width: 100%; padding: 0.5rem 1.5rem 0.75rem; }
 
 .navigation-actions {
   display: flex;
