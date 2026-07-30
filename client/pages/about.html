@@ -72,12 +72,7 @@
         position: relative;
         overflow: hidden;
       }
-      .ab-img-portrait::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(145deg, #f0ece3 0%, #e4dfd4 100%);
-      }
+      .ab-img-portrait::before { display: none; }
       .ab-img-portrait-inner {
         position: relative;
         z-index: 1;
@@ -109,12 +104,7 @@
         position: relative;
         overflow: hidden;
       }
-      .ab-img-landscape::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, #f0ece3 0%, #e4dfd4 100%);
-      }
+      .ab-img-landscape::before { display: none; }
       .ab-img-landscape-inner {
         position: relative;
         z-index: 1;
@@ -467,7 +457,7 @@
             <div class="col-lg-6">
               <!-- Portrait photo -->
               <div class="ab-img-portrait" style="padding:0;overflow:hidden;">
-                <img src="/assets/IMG_6748.JPG" alt="Fainna" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;" />
+                <img src="/assets/IMG_6748.JPG" alt="Fainna" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;z-index:1;" />
               </div>
             </div>
           </div>
@@ -496,7 +486,7 @@
             <div class="col-lg-6">
               <!-- Lifestyle photo -->
               <div class="ab-img-landscape" style="padding:0;overflow:hidden;">
-                <img src="/assets/TIMM9760.JPG" alt="Fainna lifestyle" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;" />
+                <img src="/assets/TIMM9760.JPG" alt="Fainna lifestyle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;z-index:1;" />
               </div>
             </div>
           </div>
