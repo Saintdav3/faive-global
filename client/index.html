@@ -136,6 +136,10 @@
         color: var(--color-gold);
       }
 
+      .fi-about-mobile-cta {
+        display: none;
+      }
+
       @media (max-width: 991px) {
         .fi-about-grid {
           grid-template-columns: 1fr;
@@ -154,6 +158,13 @@
         }
         .fi-about-section {
           padding: 3rem 0;
+        }
+        .fi-about-extra {
+          display: none;
+        }
+        .fi-about-mobile-cta {
+          display: inline-flex;
+          margin-top: 1.5rem;
         }
       }
       /* Medicube featured videos */
@@ -820,15 +831,16 @@
                 relatable experiences, and product education in a way that feels
                 genuine rather than promotional.
               </p>
-              <p>
+              <p class="fi-about-extra">
                 Whether it's skincare, self-care, beauty routines, lifestyle
                 content, or UGC campaigns, my goal is always the same:
               </p>
-              <p>
+              <p class="fi-about-extra">
                 <strong
                   >Create content people trust and brands remember.</strong
                 >
               </p>
+              <a href="/pages/about" class="fi-about-mobile-cta btn-primary">View More</a>
             </div>
             <div class="fi-about-visual" aria-hidden="true"></div>
           </div>
