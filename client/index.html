@@ -158,7 +158,7 @@
       }
       .fi-about-grid {
         display: grid;
-        grid-template-columns: 1.4fr 0.6fr;
+        grid-template-columns: 1fr 1fr;
         gap: 5rem;
         align-items: center;
       }
@@ -187,8 +187,9 @@
         background: #ece9e3;
         border-radius: 16px;
         aspect-ratio: 3 / 4;
-        max-height: 480px;
+        max-height: 960px;
         margin-right: -6rem;
+        width: 100%;
       }
 
       .fi-results-grid {
@@ -257,7 +258,11 @@
           gap: 2.5rem;
         }
         .fi-about-visual {
-          max-height: 280px;
+          max-height: 480px;
+          width: 100%;
+          margin-right: 0;
+          margin-left: auto;
+          margin-right: auto;
         }
         .fi-results-grid {
           grid-template-columns: repeat(2, 1fr);
