@@ -387,11 +387,12 @@ img {
     border-radius: 0;
     border-bottom: 1px solid rgba(12,12,12,0.06);
     width: 100%;
+    background: none !important;
   }
-  .navigation-menu-wrapper.mobile .navigation-menu-item:hover,
-  .navigation-menu-wrapper.mobile .navigation-menu-item.active {
-    background: none;
+  .navigation-menu-wrapper.mobile .navigation-menu-item:hover .nav-item-text,
+  .navigation-menu-wrapper.mobile .navigation-menu-item.active .nav-item-text {
     color: var(--color-gold, #c9a84c);
+    transition: color 0.15s ease;
   }
   .dropdown-mega-grid { grid-template-columns: 1fr 1fr; }
   .dropdown-portfolio-layout { grid-template-columns: 1fr; }
