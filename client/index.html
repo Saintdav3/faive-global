@@ -26,12 +26,34 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <style>
       /* Hero blobs */
+      @keyframes blob-drift-1 {
+        0%   { transform: translate(0, 0) scale(1); }
+        25%  { transform: translate(40px, -30px) scale(1.05); }
+        50%  { transform: translate(20px, 50px) scale(0.97); }
+        75%  { transform: translate(-30px, 20px) scale(1.03); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+      @keyframes blob-drift-2 {
+        0%   { transform: translate(0, 0) scale(1); }
+        30%  { transform: translate(-50px, 30px) scale(1.06); }
+        60%  { transform: translate(30px, -40px) scale(0.95); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+      @keyframes blob-drift-3 {
+        0%   { transform: translate(0, 0) scale(1); }
+        20%  { transform: translate(25px, 35px) scale(1.08); }
+        55%  { transform: translate(-20px, -25px) scale(0.94); }
+        80%  { transform: translate(15px, 10px) scale(1.04); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+
       .hero-blob {
         position: absolute;
         border-radius: 50%;
         filter: blur(90px);
         pointer-events: none;
         z-index: 0;
+        will-change: transform;
       }
       .hero-blob-1 {
         width: clamp(340px, 45vw, 620px);
@@ -39,6 +61,7 @@
         background: radial-gradient(circle, rgba(249,210,1,0.22) 0%, rgba(241,159,26,0.10) 60%, transparent 100%);
         top: -10%;
         left: -8%;
+        animation: blob-drift-1 14s ease-in-out infinite;
       }
       .hero-blob-2 {
         width: clamp(260px, 35vw, 500px);
@@ -46,6 +69,7 @@
         background: radial-gradient(circle, rgba(220,130,100,0.14) 0%, rgba(230,160,120,0.07) 60%, transparent 100%);
         bottom: -5%;
         right: 30%;
+        animation: blob-drift-2 18s ease-in-out infinite;
       }
       .hero-blob-3 {
         width: clamp(200px, 28vw, 380px);
@@ -53,9 +77,13 @@
         background: radial-gradient(circle, rgba(249,210,1,0.16) 0%, transparent 70%);
         top: 10%;
         right: 5%;
+        animation: blob-drift-3 11s ease-in-out infinite;
       }
       .hero-section { position: relative; overflow: hidden; }
       .hero-section .container { position: relative; z-index: 1; }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-blob { animation: none; }
+      }
 
       /* Fainna creator landing page */
       .fi-hero-tagline {
