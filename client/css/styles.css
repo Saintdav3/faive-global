@@ -973,6 +973,19 @@ img {
   letter-spacing: 0.04em;
 }
 
+.footer-fainna-name {
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 2rem;
+  color: var(--color-gold, #c9a84c);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.footer-fainna-dot {
+  color: var(--color-gold, #c9a84c);
+}
+
 .footer-logo {
   height: 64px;
   width: auto;
@@ -2743,20 +2756,27 @@ textarea.form-control {
   list-style: none;
   padding: 0;
   margin: 0.5rem 0 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.25rem;
+  align-items: center;
 }
 .contact-inquiry-list li {
   font-family: 'Gilroy-Regular', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-ink);
-  padding: 0.35rem 0;
-  padding-left: 1.1rem;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 .contact-inquiry-list li::before {
   content: '•';
-  position: absolute;
-  left: 0;
   color: var(--color-gold, #c9a84c);
+  font-size: 1rem;
+  line-height: 1;
+}
+.contact-inquiry-list li:first-child::before {
+  display: none;
 }
 
 .contact-brand-grid {
