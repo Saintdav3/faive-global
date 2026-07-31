@@ -99,13 +99,13 @@ img {
 .navigation-logo a { display: flex; align-items: center; gap: 0.4rem; }
 
 .nav-brand-x {
-  font-family: 'Gilroy-Regular', sans-serif;
-  font-size: 0.7rem;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 1.1rem;
   color: var(--color-ink);
   opacity: 0.45;
   letter-spacing: 0;
   line-height: 1;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 
 .nav-brand-name {
