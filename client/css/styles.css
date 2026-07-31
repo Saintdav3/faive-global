@@ -72,14 +72,21 @@ img {
    NAVIGATION PARENT
    ============================================================ */
 .navigation-parent {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(12, 12, 12, 0.07);
   transition: box-shadow 240ms ease;
+}
+
+body {
+  padding-top: 68px;
 }
 .navigation-parent.is-scrolled { box-shadow: 0 4px 24px rgba(12,12,12,0.09); }
 
@@ -399,14 +406,6 @@ img {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 991px) {
-  .navigation-parent {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-  body { padding-top: 64px; }
   .navigation-menu { display: none; }
   .navigation-actions .navigation-link-wrapper:not(:last-child) { display: none; }
   .navigation-cta { display: none; }
