@@ -96,7 +96,15 @@ img {
 }
 
 .navigation-logo { flex-shrink: 0; margin-right: 2rem; }
-.navigation-logo a { display: flex; align-items: center; text-decoration: none; }
+.navigation-logo a { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  mix-blend-mode: darken;
+  flex-shrink: 0;
+}
 
 .nav-brand-stack {
   display: flex;
