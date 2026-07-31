@@ -421,6 +421,9 @@ body {
     width: 100%;
     background: none !important;
   }
+  .navigation-menu-wrapper.mobile .navigation-menu-item[aria-current="page"] .nav-item-text {
+    color: var(--color-gold, #c9a84c) !important;
+  }
   .navigation-menu-wrapper.mobile .navigation-menu-item:hover .nav-item-text,
   .navigation-menu-wrapper.mobile .navigation-menu-item.active .nav-item-text {
     color: var(--color-gold, #c9a84c);
