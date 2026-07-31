@@ -96,16 +96,12 @@ img {
 }
 
 .navigation-logo { flex-shrink: 0; margin-right: 2rem; }
-.navigation-logo a { display: flex; align-items: center; gap: 0.4rem; }
+.navigation-logo a { display: flex; align-items: center; text-decoration: none; }
 
-.nav-brand-x {
-  font-family: 'Gilroy-Regular', sans-serif;
-  font-size: 0.7rem;
-  color: var(--color-ink);
-  opacity: 0.45;
-  letter-spacing: 0;
-  line-height: 1;
-  margin-top: 0.15rem;
+.nav-brand-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .nav-brand-name {
@@ -115,19 +111,20 @@ img {
   letter-spacing: 0.01em;
   white-space: nowrap;
   line-height: 1;
-  margin-top: 0.1rem;
 }
 
 .nav-brand-dot {
   color: #fad201;
 }
 
-.nav-logo {
-  height: 40px;
-  width: auto;
-  display: block;
-  mix-blend-mode: darken;
-  flex-shrink: 0;
+.nav-brand-sub {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 0.62rem;
+  color: #888880;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  line-height: 1;
+  margin-top: 0.2rem;
 }
 
 .navigation-menu {
