@@ -2739,9 +2739,24 @@ textarea.form-control {
   max-width: 38ch;
 }
 
-.contact-page-sub-bold {
-  font-family: 'Gilroy-Bold', sans-serif;
+.contact-inquiry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.75rem;
+}
+.contact-inquiry-list li {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 0.9rem;
   color: var(--color-ink);
+  padding: 0.35rem 0;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.contact-inquiry-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold, #c9a84c);
 }
 
 .contact-brand-grid {
