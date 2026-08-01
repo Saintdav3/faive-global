@@ -1,7 +1,10 @@
 import { initPortfolioFilters, loadBrandPage, loadBrandOverview } from './portfolio.js';
 import { initMegaNav } from './mega-nav.js';
 
-const FORMSPREE_URL = 'https://formspree.io/f/xvzdkbap';
+const API_BASE =
+  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000/api'
+    : '/api';
 
 const applyRevealAttributes = () => {
   const selectors = [
@@ -114,18 +117,18 @@ const initContactForm = () => {
     if (feedback) { feedback.textContent = ''; feedback.className = 'form-feedback mt-3'; }
 
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(`${API_BASE}/contact`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
       const data = await res.json();
 
       if (feedback) {
-        feedback.textContent = data.ok ? 'Message sent! We will be in touch soon.' : (data.error || 'Something went wrong.');
-        feedback.classList.add(data.ok ? 'text-success' : 'text-danger');
+        feedback.textContent = data.message;
+        feedback.classList.add(data.success ? 'text-success' : 'text-danger');
       }
-      if (data.ok) form.reset();
+      if (data.success) form.reset();
     } catch {
       if (feedback) {
         feedback.textContent = 'Something went wrong. Please email hello@faiveglobal.ltd.';
