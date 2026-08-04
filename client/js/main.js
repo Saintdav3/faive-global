@@ -1,10 +1,7 @@
 import { initPortfolioFilters, loadBrandPage, loadBrandOverview } from './portfolio.js';
 import { initMegaNav } from './mega-nav.js';
 
-const API_BASE =
-  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:3000/api'
-    : '/api';
+const CONTACT_ENDPOINT = '/contact.php';
 
 const applyRevealAttributes = () => {
   const selectors = [
@@ -117,7 +114,7 @@ const initContactForm = () => {
     if (feedback) { feedback.textContent = ''; feedback.className = 'form-feedback mt-3'; }
 
     try {
-      const res = await fetch(`${API_BASE}/contact`, {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
